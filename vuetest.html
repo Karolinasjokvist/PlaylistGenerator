@@ -1,0 +1,24 @@
+<html>
+
+<head>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="apiConfig.js"></script>
+    <script src="songSource.js"></script>
+
+    <script>
+        // Babel generates calls to React.createElement by default, so we redefine that:
+        const React = { createElement: Vue.h };
+    </script>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+
+<script type="text/jsx">
+    
+
+</script>
+
+</html>
