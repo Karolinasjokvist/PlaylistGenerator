@@ -3,15 +3,13 @@ const SongSource = {   // JS object creation literal
         return fetch(BASE_URL + params, {
             "method": "GET",
             "headers": {
-                'x-rapidapi-host': 'genius.p.rapidapi.com',
+                'x-rapidapi-host': 'deezerdevs-deezer.p.rapidapi.com',
                 'x-rapidapi-key': API_KEY
             }
-        }).then(response => {
-            console.log(response);
-        })
-            .catch(err => {
-                console.error(err);
-            });
+        }).then(response => { if (response.status != 200) throw "error " + response.status; return response })
+
+        // from HTTP response headers to HTTP response data
+        .then(response => response.json());
     }
     ,   // comma between object entries
     searchSongs(params) {
