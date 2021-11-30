@@ -1,0 +1,40 @@
+
+.menu{
+    height: 70vh;
+    width: 100%;
+    display: flex;
+}
+
+
+.menuItem{
+    height: 100%;
+    width: 33%;
+    border-style: solid;
+    border-color: aquamarine;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.sideButton{
+    width: 80%;
+    height: 60%;
+    background-color: blueviolet;
+    margin-bottom: -10%;
+    display: grid;
+    place-content: center;
+    font-size: 500%;
+    cursor: pointer;
+}
+
+.midButton{
+    width: 80%;
+    height: 70%;
+    background-color: blueviolet;
+    margin-bottom: 0;
+    display: grid;
+    place-content: center;
+    font-size: 550%;
+    cursor: pointer;
+}
+

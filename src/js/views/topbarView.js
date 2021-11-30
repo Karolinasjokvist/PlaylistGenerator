@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import '../css/topbarView.css';
+import '../../css/topbarView.css';
 
 export function TopbarView() {
     return (
-        <div>
+        <div className="background">
             <div className="top">
                 <div className="topbuttons">
                     <button className="b1">Register</button>
