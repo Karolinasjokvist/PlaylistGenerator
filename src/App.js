@@ -1,12 +1,14 @@
-import React, { Component }  from 'react';
-import './App.css';
-import {SongSource} from './js/songSource';
+import React, { Component } from 'react';
+import './css/App.css';
+import { TopbarView } from './js/topbarView';
+import { SongSource } from './js/songSource';
 
 
 function App() {
   return (
     <div>
-      {console.log(SongSource.searchSongs('302127'))}
+      {TopbarView()}
+      {SongSource.apiCall("/album/302127").then(data=> console.log(data))}
     </div>
   );
 }
