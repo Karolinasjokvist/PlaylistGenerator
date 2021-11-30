@@ -8,7 +8,7 @@ function App() {
   return (
     <div>
       {TopbarView()}
-      {SongSource.apiCall("/album/302127").then(data=> console.log(data))}
+      {console.log(SongSource.apiCall("/album/302127"))}
     </div>
   );
 }

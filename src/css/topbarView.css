@@ -6,7 +6,7 @@
 }
 
 body{
-	background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(8,14,62,1) 40%, rgba(0,0,0,1) 100%);
+	background-image: linear-gradient( #d16ba5, #a85680, #80435e, #5a3040, #351f26, #25171c, #170e11, #000000, #000000, #000000, #000000, #000000);
 	margin: 6px;
 }
 
