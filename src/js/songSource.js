@@ -1,4 +1,6 @@
-const SongSource = {   // JS object creation literal
+import {BASE_URL,API_KEY} from './apiConfig';
+
+export const SongSource = {   // JS object creation literal
     apiCall(params) {
         return fetch(BASE_URL + params, {
             "method": "GET",
@@ -13,7 +15,7 @@ const SongSource = {   // JS object creation literal
     }
     ,   // comma between object entries
     searchSongs(params) {
-        return SongSource.apiCall('/artists/' + params + '/songs?'
+        return SongSource.apiCall('/album/' + params
             + new URLSearchParams(params))
             .then(data => { return data.results });
     },
