@@ -46,7 +46,7 @@ function App(props) {
       {/* {/ {console.log(SongSource.apiCall("/album/302127"))} /} */}
       {/* {/ {model.addGenreToPlaylist("106", 5)} /} */}
       {/* {/ {console.log(model.genres["106"])} */}
-      {/* {StartView()}*/}
+      {/* {StartView()} */}
       {/* {GenerateStartView(model)} */}
       {/* {console.log(SongSource.apiCall("/album/302127"))} */}
       {/* {model.addGenreToPlaylist("106", 3)} */}
