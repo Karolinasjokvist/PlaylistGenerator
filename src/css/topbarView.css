@@ -12,7 +12,6 @@ html{
 
 .background{
 	background: linear-gradient(black 60%, #151443 100%);
-	/* box-shadow: 0px 50px 50px 0px black; */
 	height: 30vh;
 	position: relative;
 }
@@ -71,11 +70,11 @@ html{
 	cursor: pointer;
 	background: 
      linear-gradient(90deg, transparent, white, transparent) 
-    bottom /var(--d, 0) 3px no-repeat;
-  transition: 0.5s;
+     bottom /var(--d, 0) 3px no-repeat;
 }
 .b2:hover{
 	--d: 30%;
+	transition: 0.5s;
 }
 
 .menu{

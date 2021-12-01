@@ -1,8 +1,8 @@
 export class PlaylistModel {
-    constructor(playlistName = "MyPlaylist", numberOfSongs = 0, explicit = true, genres = [], 
+    constructor(playlistName = "MyPlaylist", numberOfSongs = [{10:false},{20:false},{30:false}], explicit = true, genres = [], 
                 artists = [], currentSong = null, songs = []) 
     {
-        this.playlistName = playlistName
+        this.playlistName = playlistName;
         this.numberOfSongs = numberOfSongs;
         this.explicit = explicit;
         this.genres = genres;
@@ -19,10 +19,6 @@ export class PlaylistModel {
     }
 
     addGenreToPlaylist(genre, amount){
-        // if(this.addedGenre(genre)){
-        //     this.genres.genre = amount;
-        //     return;
-        // }
         this.genres[genre] = amount;
     }
 
