@@ -6,42 +6,58 @@
 }
 
 html{
-	background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(8,14,62,1) 40%, rgba(0,0,0,1) 100%);
+	background: linear-gradient(180deg,#151443 70%, black 100%);
 	height: 100%;
 }
 
+.background{
+	background: linear-gradient(black 60%, #151443 100%);
+	/* box-shadow: 0px 50px 50px 0px black; */
+	height: 30vh;
+	position: relative;
+}
+
 .top{
-	width: 100%;
-	height: 5%;
-	margin-top: 10px;
+	width: 23%;
+	height: 15%;
+	background-color: black;
+	padding-top: 10px;
+	position: absolute;
+	right: 0;
 }
 
 .topbuttons{
 	float: right;
 	display: inline;
 	margin-right: 1vw;
+	height: 100%;
 }
 
 .b1{
-	height: 100%;
+	height:35px;
 	width: 100px;
-	font-size: 220%;
+	float: left;
+	font-size: 1.5em;
 	background-color: #151443;
 	box-shadow: 3px 3px 3px #909196;
 	margin-left: 1vw;
 }
 
 .head{
-	height: 20%;
-	margin-top: 0;
+	height: 100px;
 	width: 100%;
-	text-align: center;
-	font-size: 18vmin;
+	text-align:center;
+	font-size: 10vmin;
+	position: absolute;
+	left: 0;
+	top: 30px;
 }
 
 .nav{
 	width: 100%;
-	height: 5%;
+	height: 20%;
+	position: absolute;
+	bottom: 50px;
 }
 
 .b2{
@@ -51,8 +67,15 @@ html{
 	border: none; 
   	margin: 0;
   	padding: 0;
-	font-size: 220%;
+	font-size: 3vmin;
 	cursor: pointer;
+	background: 
+     linear-gradient(90deg, transparent, white, transparent) 
+    bottom /var(--d, 0) 3px no-repeat;
+  transition: 0.5s;
+}
+.b2:hover{
+	--d: 30%;
 }
 
 .menu{

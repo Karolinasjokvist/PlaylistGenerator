@@ -21,6 +21,10 @@ export const SongSource = {   // JS object creation literal
     },
 
     getSongDetails(id) {
-        return SongSource.apiCall('/recipes/' + id + '/information')
+        return SongSource.apiCall('/track/' + id);
+    },
+
+    getGenre(id){
+        return SongSource.apiCall("/genre/" + id);
     }
 };

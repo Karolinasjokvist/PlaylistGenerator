@@ -1,6 +1,6 @@
 
 .menu{
-    height: 70vh;
+    height: 50vh;
     width: 100%;
     display: flex;
 }
@@ -9,32 +9,59 @@
 .menuItem{
     height: 100%;
     width: 33%;
-    border-style: solid;
-    border-color: aquamarine;
+    /* border-style: solid;
+    border-color: aquamarine; */
     display: flex;
     justify-content: center;
-    align-items:center;
+    position: relative;
 }
 
-.sideButton{
-    width: 80%;
-    height: 60%;
+.buttonRight{
+    width: 70%;
+    height: 80%;
     background-color: blueviolet;
-    margin-bottom: -10%;
     display: grid;
     place-content: center;
+    text-align: center;
     font-size: 500%;
     cursor: pointer;
+    border-radius: 30px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.buttonLeft{
+    width: 70%;
+    height: 80%;
+    background-color: blueviolet;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    font-size: 500%;
+    cursor: pointer;
+    border-radius: 30px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 
 .midButton{
     width: 80%;
-    height: 70%;
+    height: 90%;
     background-color: blueviolet;
     margin-bottom: 0;
     display: grid;
     place-content: center;
+    text-align: center;
     font-size: 550%;
     cursor: pointer;
+    border-radius: 30px;
+    position: absolute;
+    bottom: 0;
+}
+
+.slide{
+    position: absolute;
+    bottom: 0;
 }
 

@@ -10,8 +10,8 @@ export function TopbarView() {
                     <button className="b1">Log in</button>
                 </div>
             </div>
-
             <div className="head">PlaylistGenerator</div>
+
             <div className="nav">
                 <button className="b2">Explore</button>
                 <button className="b2">Generate playlist</button>
