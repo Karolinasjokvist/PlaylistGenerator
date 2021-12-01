@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
+import '../../css/explore.css';
+
 export function ExploreGenresView(props) {
     return (
-        
-        <div>
+        <div className="explorePage">
             {props.genres.map(genre =>
-                <span class="genresView" key={genre.id}   >
-                    <img src={genre.picture} class="genreImgView"></img>
-                    <div>{genre.name}</div>
-                </span>
-            )}
+                    <span className="exploreView" key={genre.id} onClick ={e => props.genreChosen(e = genre.id)}  >
+                        <img src={genre.img} className="exploreImg"></img>
+                        <div>{genre.name}</div>
+                    </span>
+                )}
         </div>
     );
 }

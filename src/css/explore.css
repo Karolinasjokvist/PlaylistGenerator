@@ -1,0 +1,24 @@
+.explorePage{
+    width: 100%;
+}
+.exploreView{
+    vertical-align: middle;
+    display: inline-block;
+    height:150px;
+    width: 20%;
+    text-align: center;
+    font-size: 200%;
+}
+
+.exploreImg{
+    border-radius: 20px;
+    
+    object-fit: cover;
+    width: 230px; 
+    height: 230px; 
+    text-align: center;
+}
+
+.exploreText{
+
+}

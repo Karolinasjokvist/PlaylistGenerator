@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 function PromiseNoData(promise, data, error) {
-    console.log(data);
     if (promise === null || promise === undefined) {
         return ( <span>no data</span>)
     } else if (data === undefined || data === null) {
