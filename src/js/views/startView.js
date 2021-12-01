@@ -3,7 +3,6 @@ import '../../css/startView.css';
 
 export function StartView(props) {
     return (
-
         <div className="menu">
             <div className="menuItem">
                 <div className="buttonLeft">

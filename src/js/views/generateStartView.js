@@ -11,7 +11,7 @@ export function GenerateStartView(props) {
     }
 
     return (
-        <div classname="background">
+        <div>
             <div>
                 <button className="buttonBack">←</button>
                 <div className="textTop">
@@ -30,7 +30,7 @@ export function GenerateStartView(props) {
                     </button>
                 </div>
                 <div className="menuItem">
-                    <button onClick={props.model.numberOfSongs[30] = true} className={isClicked()}>
+                    <button className={isClicked(30)} onClick={e => props.model.currentNumberOfSongs(30)}>
                         <p>Long<br></br>30 songs</p>
                     </button>
                 </div>
@@ -38,9 +38,9 @@ export function GenerateStartView(props) {
             <div>
                 <div className="textBottom">
                     Allow explicit songs {' '}
-                    <label class="switch">
+                    <label className="switch">
                         <input type="checkbox"></input>
-                        <span class="slider round"></span>
+                        <span className="slider round"></span>
                     </label>
                 </div>
                 <button className="buttonNext">→</button>

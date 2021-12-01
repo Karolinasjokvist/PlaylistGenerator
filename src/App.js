@@ -11,24 +11,24 @@ import {PlaylistModel} from './js/playlistModel';
 
 
 function App(props) {
-  const model = new PlaylistModel("hej",6);
+  const model = new PlaylistModel();
   const genres = ["106","165","113"]
   return (
     <div>
       {TopbarView()}
-      {console.log(model.numberOfSongs["10"])}
+      {console.log(model.numberOfSongs[10])}
+      {<GenerateStartView model = {model}/>}
       {/*{<ExploreGenresPresenter genres = {genres}/>}
        {StartView()} /}
       {/ {console.log(SongSource.apiCall("/album/302127"))} /}
       {/ {model.addGenreToPlaylist("106", 3)} /}
       {/ {model.addGenreToPlaylist("106", 5)} /}
       {/ {console.log(model.genres["106"])} */}
-      {/* {StartView()}*/}
-      {GenerateStartView(model)}
+      {/* {StartView()}
       {console.log(SongSource.apiCall("/album/302127"))}
       {model.addGenreToPlaylist("106", 3)}
       {model.addGenreToPlaylist("106", 5)}
-      {console.log(model.genres["106"])}
+      {console.log(model.genres["106"])}*/}
     </div>
   );
 }
