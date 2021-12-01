@@ -45,7 +45,7 @@ html{
 .head{
 	height: 100px;
 	width: 100%;
-	text-align:center;
+	text-align: center;
 	font-size: 10vmin;
 	position: absolute;
 	left: 0;
@@ -70,7 +70,7 @@ html{
 	cursor: pointer;
 	background: 
      linear-gradient(90deg, transparent, white, transparent) 
-     bottom /var(--d, 0) 3px no-repeat;
+    bottom /var(--d, 0) 3px no-repeat;
 }
 .b2:hover{
 	--d: 30%;
