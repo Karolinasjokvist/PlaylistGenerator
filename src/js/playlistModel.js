@@ -1,5 +1,5 @@
 export class PlaylistModel {
-    constructor(playlistName = "MyPlaylist", numberOfSongs = [{10:false},{20:false},{30:false}], explicit = true, genres = [], 
+    constructor(playlistName = "MyPlaylist", numberOfSongs = [{10:"hej"},{20:false},{30:false}], explicit = true, genres = [], 
                 artists = [], currentSong = null, songs = []) 
     {
         this.playlistName = playlistName;
