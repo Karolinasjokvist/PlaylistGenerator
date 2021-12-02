@@ -26,6 +26,10 @@ export const SongSource = {   // JS object creation literal
 
     getArtistsFromGenre(id){
         return SongSource.apiCall("/genre/" + id + "/artists");
+    },
+
+    getArtistInfo(id){
+        return SongSource.apiCall("/artist/"+ id);
     }
 
 };

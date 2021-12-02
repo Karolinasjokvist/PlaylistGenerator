@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { SongSource } from './songSource';
 import PromiseNoData from './promiseNoData';
+import { ExploreArtistsView } from './views/exploreArtistsView';
 
 export function ExploreArtistsPresenter(props) {
     const [promise, setPromise] = React.useState(null);
@@ -9,7 +10,7 @@ export function ExploreArtistsPresenter(props) {
 
     React.useEffect(() => {
         setPromise(
-            SongSource.getArtistsFromGenre(props.genre)
+            SongSource.getArtistInfo(props.artists)
                 .then((data) => setData(data))
                 .catch((error) => setError(error))
         );
@@ -18,7 +19,7 @@ export function ExploreArtistsPresenter(props) {
     return (
         <div>
             {PromiseNoData(promise, data, error) || (
-                console.log(data)
+                <ExploreArtistsView artists = {data}/>
             )}
         </div>
     );

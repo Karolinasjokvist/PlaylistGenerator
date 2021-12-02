@@ -2,9 +2,8 @@
     width: 100%;
 }
 .exploreView{
-    vertical-align: middle;
     display: inline-block;
-    height:150px;
+    height:350px;
     width: 20%;
     text-align: center;
     font-size: 200%;
@@ -12,13 +11,21 @@
 
 .exploreImg{
     border-radius: 20px;
-    
+    cursor: pointer;
     object-fit: cover;
-    width: 230px; 
-    height: 230px; 
+    width: 70%; 
+    height: 80%; 
     text-align: center;
+    filter: sepia(50%);
 }
 
-.exploreText{
+.exploreImg:hover{
+    box-shadow: 8px 8px 20px white;
+    transition: 0.5s;
+}
 
+.title{
+    font-size: 300%;
+    text-align: center;
+    margin-top: 0px;
 }

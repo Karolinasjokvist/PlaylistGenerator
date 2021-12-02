@@ -1,27 +1,20 @@
 import React, { Component } from 'react';
 import './css/App.css';
 import { TopbarView } from './js/views/topbarView';
-import { StartView} from './js/views/startView';
-import { ExploreArtistsView} from './js/views/exploreArtistsView';
-import { GenerateStartView} from './js/views/generateStartView';
-import { SongSource } from './js/songSource';
-import { ExploreGenresView } from './js/views/exploreGenresView';
-import { ExploreArtistsPresenter, ExploreGenresPresenter } from './js/exploreArtistsPresenter';
+import { ExploreArtistsPresenter} from './js/exploreArtistsPresenter';
+import { ExploreGenrePresenter } from './js/exploreGenrePresenter';
 import {PlaylistModel} from './js/playlistModel';
-import { Genres } from './js/genres';
 
 
 function App(props) {
-  const model = new PlaylistModel("hej",6);
-  const genres = new Genres();
+  const pmodel = new PlaylistModel("hej",6);
   return (
     <div>
       {TopbarView()}
-      {console.log(genres.list)}
-      {<ExploreGenresView genres = {genres.list}
-           genreChosen = {(id) => console.log(id)}/>}
-
-      {<ExploreArtistsPresenter genre = {genres.list[1].id}/>}
+      {/* {<ExploreGenresView genres = {genres.list}  */}
+            {/* // genreChosen = {(id) => console.log(id)}/>} */}
+      {<ExploreGenrePresenter model = {props.model} />}
+      {/* {<ExploreArtistsPresenter artists = {"13"}/>} */}
       {/* {console.log(model.numberOfSongs["10"])} */}
       {/* {<ExploreGenresPresenter />} */}
        {/* {StartView()} /} */}
