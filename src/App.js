@@ -1,32 +1,25 @@
 import React, { Component } from 'react';
 import './css/App.css';
 import { TopbarView } from './js/views/topbarView';
-import { ExploreArtistsPresenter} from './js/exploreArtistsPresenter';
-import { ExploreGenrePresenter } from './js/exploreGenrePresenter';
-import {PlaylistModel} from './js/playlistModel';
+import  ExploreArtistsPresenter from './js/presenters/exploreArtistsPresenter';
+import  ExploreGenrePresenter  from './js/presenters/exploreGenrePresenter';
+import  TopBarPresenter  from './js/presenters/topBarPresenter';
+import Show from './js/presenters/showPresenter';
+
+function defaultRoute() {
+  if (["#start", "#exploreGenre", "#exploreArtists"].find((knownRoute) => knownRoute !== window.location.hash)){
+      window.location.hash = "#start";
+  }
+}
+
 
 
 function App(props) {
-  const pmodel = new PlaylistModel("hej",6);
   return (
     <div>
-      {TopbarView()}
-      {/* {<ExploreGenresView genres = {genres.list}  */}
-            {/* // genreChosen = {(id) => console.log(id)}/>} */}
-      {<ExploreGenrePresenter model = {props.model} />}
-      {/* {<ExploreArtistsPresenter artists = {"13"}/>} */}
-      {/* {console.log(model.numberOfSongs["10"])} */}
-      {/* {<ExploreGenresPresenter />} */}
-       {/* {StartView()} /} */}
-      {/* {/ {console.log(SongSource.apiCall("/album/302127"))} /} */}
-      {/* {/ {model.addGenreToPlaylist("106", 5)} /} */}
-      {/* {/ {console.log(model.genres["106"])} */}
-      {/* {StartView()} */}
-      {/* {GenerateStartView(model)} */}
-      {/* {console.log(SongSource.apiCall("/album/302127"))} */}
-      {/* {model.addGenreToPlaylist("106", 3)} */}
-      {/* {model.addGenreToPlaylist("106", 5)} */}
-      {/* {console.log(model.genres["106"])} */}
+      <TopBarPresenter/>
+      <Show hash="#exploreGenre" class="mainContent debug"><ExploreGenrePresenter model={props.model} /></Show>
+      <Show hash="#exploreArtists" class="mainContent debug"><ExploreArtistsPresenter genre={props.model.currentGenre} /></Show>
     </div>
   );
 }

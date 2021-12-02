@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Genres } from './genres';
-import PromiseNoData from './promiseNoData';
-import  ExploreGenresView  from './views/exploreGenresView';
+import { Genres } from '../genres';
+import PromiseNoData from '../promiseNoData';
+import  ExploreGenresView  from '../views/exploreGenresView';
 
 
-export function ExploreGenrePresenter(props) {
+function ExploreGenrePresenter(props) {
     const [genres, setGenres] = React.useState(null);
 
     React.useEffect(() => {
@@ -19,3 +19,5 @@ export function ExploreGenrePresenter(props) {
         </div>
     );
 }
+
+export default ExploreGenrePresenter;

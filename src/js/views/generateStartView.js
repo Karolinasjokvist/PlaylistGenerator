@@ -30,7 +30,7 @@ export function GenerateStartView(props) {
                     </button>
                 </div>
                 <div className="menuItem">
-                    <button className={isClicked(30)} onClick={e => props.model.currentNumberOfSongs(30)}>
+                    <button className={isClicked(30)} onClick={e => props.model.currentNumberOfSongs(30) = true}>
                         <p>Long<br></br>30 songs</p>
                     </button>
                 </div>

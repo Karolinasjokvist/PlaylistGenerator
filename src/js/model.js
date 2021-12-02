@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 class Model{
     constructor(){
-        this.currentGenre = null;
+        this.currentGenre = "132";
 
     }
 

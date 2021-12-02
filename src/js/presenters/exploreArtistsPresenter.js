@@ -1,26 +1,30 @@
 import React, { Component } from 'react';
-import { SongSource } from './songSource';
-import { GenerateStartView } from './views/generateStartView';
-import PromiseNoData from './promiseNoData';
+import { SongSource } from '../songSource';
+import PromiseNoData from '../promiseNoData';
+import  ExploreArtistsView  from '../views/exploreArtistsView';
 
-export function GenerateStartPresenter(props) {
+function ExploreArtistsPresenter(props) {
     const [promise, setPromise] = React.useState(null);
     const [data, setData] = React.useState(null);
     const [error, setError] = React.useState(null);
 
+
     React.useEffect(() => {
         setPromise(
-            Promise.all([SongSource.getGenre(props.genres[0]),SongSource.getGenre(props.genres[1])])
+            SongSource.getArtistsFromGenre(props.genre)
                 .then((data) => setData(data))
                 .catch((error) => setError(error))
-        );
+        )
     }, []);
 
     return (
         <div>
+            {console.log(data)}
             {PromiseNoData(promise, data, error) || (
-                <GenerateStartView genres={data} />
+                <ExploreArtistsView artists={data.data} />
             )}
         </div>
     );
 }
+
+export default ExploreArtistsPresenter;
