@@ -5,12 +5,10 @@ import PromiseNoData from './promiseNoData';
 
 export function GenerateStartPresenter(props) {
     const [promise, setPromise] = React.useState(null);
-    const [data, setData] = React.useState(null);
-    const [error, setError] = React.useState(null);
 
     React.useEffect(() => {
         setPromise(
-            Promise.all([SongSource.getGenre(props.genres[0]),SongSource.getGenre(props.genres[1])])
+            Promise.all([SongSource.currentNumberOfSongs(props)])
                 .then((data) => setData(data))
                 .catch((error) => setError(error))
         );
@@ -18,8 +16,8 @@ export function GenerateStartPresenter(props) {
 
     return (
         <div>
-            {PromiseNoData(promise, data, error) || (
-                <GenerateStartView genres={data} />
+            {PromiseNoData(promise) || (
+                <GenerateStartView start = {data} />
             )}
         </div>
     );
