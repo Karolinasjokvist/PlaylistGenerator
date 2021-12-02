@@ -4,14 +4,14 @@ import '../../css/generateStartView.css';
 export function GenerateStartView(props) {
 
     function isClicked(length){
-        if (props.model.numberOfSongs[length]){
+        if (props.numberOfSongs[length]){
             return "buttonRightClicked";
         }
         return "buttonRight";
     }
 
     return (
-        <div>
+        <div className>
             <div>
                 <button className="buttonBack">←</button>
                 <div className="textTop">
@@ -30,11 +30,12 @@ export function GenerateStartView(props) {
                     </button>
                 </div>
                 <div className="menuItem">
-                    <button className={isClicked(30)} onClick={e => props.model.currentNumberOfSongs(30) = true}>
+                    <button className={isClicked(30)} onClick={e => props.currentNumberOfSongs(30)}>
                         <p>Long<br></br>30 songs</p>
                     </button>
                 </div>
             </div>
+
             <div>
                 <div className="textBottom">
                     Allow explicit songs {' '}

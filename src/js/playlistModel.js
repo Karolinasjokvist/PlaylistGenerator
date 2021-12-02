@@ -62,8 +62,4 @@ export class PlaylistModel {
     addArtist(artist){
         this.artists = [...this.artists, artist];
     }
-
-
-
-
 }

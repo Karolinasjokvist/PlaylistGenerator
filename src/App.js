@@ -15,6 +15,7 @@ function defaultRoute() {
 
 
 function App(props) {
+  defaultRoute();
   return (
     <div>
       <TopBarPresenter/>
