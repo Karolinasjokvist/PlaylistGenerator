@@ -28,8 +28,8 @@ export const SongSource = {   // JS object creation literal
         return SongSource.apiCall("/genre/" + id + "/artists");
     },
 
-    getArtistInfo(id){
-        return SongSource.apiCall("/artist/"+ id);
+    getSongsFromArtist(id){
+        return SongSource.apiCall("/artist/"+ id + "/top");
     }
 
 };

@@ -13,7 +13,7 @@ export class Genres{
                 img:"https://images.freeimages.com/images/large-previews/61b/rip-the-mic-1-1502437.jpg"
             },
             {
-                id:"152",
+                id:"113",
                 name:"Dance",
                 img:"https://images.freeimages.com/images/large-previews/7ef/laser-effects-in-the-hague-1190079.jpg"
             },
@@ -47,10 +47,15 @@ export class Genres{
                 name:"Soul and Funk",
                 img:"https://images.freeimages.com/images/large-previews/253/con-alma-de-guitarra-ii-1427669.jpg"
             },
+            // {
+                // id:"153",
+                // name:"Blues",
+                // img:"https://images.freeimages.com/images/large-previews/837/cd-dvd-disc-1576375.jpg"
+            // }
             {
-                id:"153",
-                name:"Blues",
-                img:"https://images.freeimages.com/images/large-previews/837/cd-dvd-disc-1576375.jpg"
+                id:"152",
+                name:"Rock",
+                img:"https://images.freeimages.com/images/large-previews/996/he-who-rocks-hardest-4-series-1466876.jpg"
             }
         ];
     }

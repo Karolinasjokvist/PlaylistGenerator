@@ -9,6 +9,11 @@ function ExploreGenrePresenter(props) {
 
     React.useEffect(() => {
         setGenres(new Genres());
+        // const obs = () => {
+            // setGenres(new Genres());
+        // };
+        // props.model.addObserver(obs);
+        // return () => props.model.removeObserver(obs);
     }, []);
 
     return (

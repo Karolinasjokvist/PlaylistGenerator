@@ -9,7 +9,16 @@
     font-size: 200%;
 }
 
-.exploreImg{
+.exploreImgGenre{
+    border-radius: 20px;
+    cursor: pointer;
+    object-fit: cover;
+    width: 70%; 
+    height: 80%; 
+    text-align: center;
+    filter: sepia(50%);
+}
+.exploreImgArtist{
     border-radius: 20px;
     cursor: pointer;
     object-fit: cover;
@@ -19,7 +28,11 @@
     filter: sepia(50%);
 }
 
-.exploreImg:hover{
+.exploreImgGenre:hover{
+    box-shadow: 8px 8px 20px white;
+    transition: 0.5s;
+}
+.exploreImgArtist:hover{
     box-shadow: 8px 8px 20px white;
     transition: 0.5s;
 }

@@ -8,7 +8,7 @@ function ExploreGenresView(props) {
             <p className="title ">Pick a genre to explore!</p>
             {props.genres.map(genre =>
                     <span className="exploreView" key={genre.id} onClick ={e => {props.genreChosen(genre.id); window.location.hash = "#exploreArtists"}}  >
-                        <img src={genre.img} className="exploreImg"></img>
+                        <img src={genre.img} className="exploreImgGenre"></img>
                         <div>{genre.name}</div>
                     </span>
                 )}

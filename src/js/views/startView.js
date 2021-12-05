@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../../css/startView.css';
 
-export function StartView(props) {
+function StartView(props) {
     return (
         <div className="menu">
             <div className="menuItem">
@@ -32,3 +32,5 @@ function value(){
     var x = document.getElementById("myRange").value;
     document.getElementById("demo").innerHTML = x;
 }
+
+export default StartView;
