@@ -23,7 +23,7 @@ function App(props) {
       <TopBarPresenter/>
       <Show hash="#start" class="mainContent debug"><StartPresenter/></Show>
       <Show hash="#exploreGenre" class="mainContent debug"><ExploreGenrePresenter model={props.model} /></Show>
-      <Show hash="#exploreArtists" class="mainContent debug"><ExploreArtistsPresenter model={props.model} /></Show>
+      <Show hash="#exploreArtists" class="mainContent debug"><ExploreArtistsPresenter model={props.model}/></Show>
     </div>
   );
 }

@@ -7,9 +7,6 @@ class Model{
     }
 
     setCurrentGenre(id){
-        if (this.currentGenre === id) {
-            return;
-        }
         this.currentGenre = id;
         this.currentGenreArtists = null;
         this.currentGenreError = null;

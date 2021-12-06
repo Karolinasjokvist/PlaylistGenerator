@@ -92,3 +92,27 @@ html{
 	width: 100%;
 	height: 100%;
 }
+
+.noData{
+
+	background-color: #151443;
+	font-size: 500%;
+	height: 20%;
+	width: 100%;
+	text-align: center;
+	align-items: center;
+}
+
+.noDataItem{
+	width: 100%;
+}
+
+.retryButton{
+	background-color: blueviolet;
+	height: 100%;
+	width: 20%;
+	text-align: center;
+	margin: 0 auto;
+	cursor: pointer;
+	border-radius: 10px;
+}
