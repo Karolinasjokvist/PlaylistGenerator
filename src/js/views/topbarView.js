@@ -6,8 +6,8 @@ export function TopbarView() {
         <div className="background">
             <div className="top">
                 <div className="topbuttons">
-                    <button className="b1">Register</button>
-                    <button className="b1">Log in</button>
+                    <button className="b1" onClick ={e => {window.location.hash = "#register"}}>Register</button>
+                    <button className="b1" onClick ={e => {window.location.hash = "#login"}}>Log in</button>
                 </div>
             </div>
             <div className="head">PlaylistGenerator</div>

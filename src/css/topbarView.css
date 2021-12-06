@@ -41,6 +41,7 @@ html{
 	background-color: #151443;
 	box-shadow: 3px 3px 3px #909196;
 	margin-left: 1vw;
+	cursor: pointer;
 }
 
 .head{

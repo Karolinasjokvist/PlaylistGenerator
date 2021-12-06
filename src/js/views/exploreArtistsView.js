@@ -28,4 +28,5 @@ function ExploreArtistsView(props) {
     // )
 // }
 
-export { ExploreArtistsView, ExplorePlayMusic };
+//export { ExploreArtistsView, ExplorePlayMusic };
+export { ExploreArtistsView};

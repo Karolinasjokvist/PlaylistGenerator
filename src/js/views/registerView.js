@@ -5,7 +5,7 @@ export function RegisterView() {
     return (
         <div className="contentbox">
 
-            <div className="sidebox"><button className="leftarrow">&#10229;</button></div>
+            <div className="sidebox"><button className="leftarrow" onClick ={e => {window.location.hash = "#start"}}>&#10229;</button></div>
 
             <div className="midbox">
 
@@ -19,11 +19,13 @@ export function RegisterView() {
 
                  <div className="bottombox">
                      <div className="row21">Already have an account? Click the square to login</div>
-                     <div className="row22"> <div className="boximg"></div></div>
+                     <div className="row22"> <div className="boximg" onClick ={e => {window.location.hash = "#login"}}></div></div>
                  </div>
             </div>
 
-            <div className="sidebox"> <div className="arrow">&#10230;</div> </div>
+            <div className="sidebox"> <div className="arrow" onClick ={e => {window.location.hash = "#start"}}>&#10230;</div> </div>
         </div>
     )
 }
+
+export default RegisterView;
