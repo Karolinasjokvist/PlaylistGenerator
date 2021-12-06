@@ -41,8 +41,7 @@ function ExploreArtistsPresenter(props) {
                                 .catch((errorSongs) => setErrorSongs(errorSongs)),
                         )
                     }} />
-            )}{promiseNoRender(promiseSongs, dataSongs, errorSongs) || (console.log("hallå"),
-                                 <ExplorePlayMusic songs={dataSongs.data}/>)}
+            )}{promiseNoRender(promiseSongs, dataSongs, errorSongs) || <ExplorePlayMusic songs={dataSongs.data}/>}
         </div>
     );
 }

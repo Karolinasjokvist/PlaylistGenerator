@@ -42,3 +42,9 @@
     text-align: center;
     margin-top: 0px;
 }
+
+.stopMusic{
+    size: 500px;
+    background-color: red;
+    margin-bottom: 500px;
+}
