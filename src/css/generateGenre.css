@@ -1,0 +1,30 @@
+html{
+    height: 100%;
+}
+
+.generatePage{
+    width: 100%;
+}
+
+.generateView{
+    display: inline-block;
+    height:350px;
+    width: 20%;
+    text-align: center;
+    font-size: 200%;
+}
+
+.generateImgGenre{
+    border-radius: 20px;
+    object-fit: cover;
+    width: 70%; 
+    height: 80%; 
+    text-align: center;
+    filter: sepia(50%);
+}
+
+.title{
+    font-size: 300%;
+    text-align: center;
+    margin-top: 0px;
+}
