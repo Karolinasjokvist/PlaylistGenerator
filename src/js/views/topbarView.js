@@ -13,9 +13,9 @@ export function TopbarView() {
             <div className="head">PlaylistGenerator</div>
 
             <div className="nav">
-                <button className="b2">Explore</button>
-                <button className="b2">Generate playlist</button>
-                <button className="b2">My playlist</button>
+                <button className="b2" onClick ={e => {window.location.hash = "#exploreGenre"}}>Explore</button>
+                <button className="b2" onClick ={e => {window.location.hash = "#generateStart"}}>Generate playlist</button>
+                <button className="b2" onClick ={e => {window.location.hash = "#myPlaylists"}}>My playlist</button>
             </div>
         </div>
     )

@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 // import './css/App.css';
 import  ExploreArtistsPresenter from './js/presenters/exploreArtistsPresenter';
 import  ExploreGenrePresenter  from './js/presenters/exploreGenrePresenter';
+import  GenerateStartPresenter  from './js/presenters/generateStartPresenter';
+import  GenerateGenrePresenter  from './js/presenters/generateGenrePresenter';
+import  MyPlaylistsPresenter  from './js/presenters/myPlaylistsPresenter';
 import  TopBarPresenter  from './js/presenters/topBarPresenter';
 import Show from './js/presenters/showPresenter';
 import StartPresenter from './js/presenters/startViewPresenter';
@@ -24,6 +27,9 @@ function App(props) {
       <Show hash="#start" class="mainContent debug"><StartPresenter/></Show>
       <Show hash="#exploreGenre" class="mainContent debug"><ExploreGenrePresenter model={props.model} /></Show>
       <Show hash="#exploreArtists" class="mainContent debug"><ExploreArtistsPresenter model={props.model}/></Show>
+      <Show hash="#generateStart" class="mainContent debug"><GenerateStartPresenter model={props.model}/></Show>
+      <Show hash="#generateGenre" class="mainContent debug"><GenerateGenrePresenter model={props.model}/></Show>
+      <Show hash="#myPlaylists" class="mainContent debug"><MyPlaylistsPresenter model={props.model}/></Show>
     </div>
   );
 }

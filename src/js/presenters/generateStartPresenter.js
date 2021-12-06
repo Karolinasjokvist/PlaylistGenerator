@@ -1,24 +1,13 @@
 import React, { Component } from 'react';
-import { SongSource } from '../songSource';
-import { GenerateStartView } from '../views/generateStartView';
-import PromiseNoData from '../promiseNoData';
+import  GenerateStartView  from '../views/generateStartView';
 
-export function GenerateStartPresenter(props) {
-    const [promise, setPromise] = React.useState(null);
-
-    React.useEffect(() => {
-        setPromise(
-            Promise.all([SongSource.currentNumberOfSongs(props)])
-                .then((data) => setData(data))
-                .catch((error) => setError(error))
-        );
-    }, []);
+function GenerateStartPresenter(props){
 
     return (
         <div>
-            {PromiseNoData(promise) || (
-                <GenerateStartView start = {data} />
-            )}
+            {<GenerateStartView/>}
         </div>
     );
 }
+
+export default GenerateStartPresenter;

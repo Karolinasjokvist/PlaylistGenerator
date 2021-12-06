@@ -1,10 +1,14 @@
-.menu{
+html{
+    height: 100%;
+}
+
+.menuG{
     height: 50vh;
     width: 100%;
     display: flex;
 }
 
-.menuItem{
+.menuItemG{
     height: 100%;
     width: 33%;
     display: flex;
@@ -12,7 +16,7 @@
     position: relative;
 }
 
-.buttonRight{
+.buttonRightG{
     width: 40%;
     height: 50%;
     background-color: rgb(51, 50, 51);
@@ -28,7 +32,7 @@
     transition-duration: 0.4s;
 }
 
-.buttonRightClicked{
+.buttonRightClickedG{
     width: 40%;
     height: 50%;
     background-color: rgb(125, 94, 160);
@@ -44,7 +48,7 @@
     transition-duration: 0.4s;
 }
 
-.buttonLeft{
+.buttonLeftG{
     width: 40%;
     height: 50%;
     background-color: rgb(51, 50, 51);
@@ -60,7 +64,7 @@
     transition-duration: 0.4s;
 }
 
-.midButton{
+.midButtonG{
     width: 40%;
     height: 50%;
     background-color: rgb(51, 50, 51);
@@ -76,7 +80,7 @@
     transition-duration: 0.4s;
 }
 
-.buttonNext{
+.buttonNextG{
     width: 4%;
     height: 7%;
     background-color: rgb(51, 50, 51);
@@ -92,7 +96,7 @@
     right: 0;
 }
 
-.buttonBack{
+.buttonBackG{
     width: 4%;
     height: 7%;
     background-color: rgb(51, 50, 51);
@@ -108,35 +112,35 @@
     transition-duration: 0.4s;
 }
 
-.buttonNext:hover{
+.buttonNextG:hover{
     background-color: rgb(125, 94, 160);
 }
 
-.buttonRight:hover{
+.buttonRightG:hover{
     background-color: rgb(125, 94, 160);
 }
 
-.buttonLeft:hover{
+.buttonLeftG:hover{
     background-color: rgb(125, 94, 160);
 }
 
-.midButton:hover{
+.midButtonG:hover{
     background-color: rgb(125, 94, 160);
 }
 
-.textTop{
+.textTopG{
     font-size: 230%;
     place-content: center;
     text-align: center;
 }
 
-.textBottom{
+.textBottomG{
     font-size: 200%;
     place-content: center;
     text-align: center;
 }
 
-.switch {
+.switch{
     position: relative;
     display: inline-block;
     width: 60px;
@@ -144,14 +148,14 @@
 }
 
 /* Hide default HTML checkbox */
-.switch input {
+.switch input{
     opacity: 0;
     width: 0;
     height: 0;
   }
   
   /* The slider */
-  .slider {
+  .slider{
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -163,7 +167,7 @@
     transition: .4s;
   }
   
-  .slider:before {
+  .slider:before{
     position: absolute;
     content: "";
     height: 26px;
