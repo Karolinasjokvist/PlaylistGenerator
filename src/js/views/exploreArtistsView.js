@@ -15,17 +15,19 @@ function ExploreArtistsView(props) {
     );
 }
 
-// function ExplorePlayMusic(props) {
-    // return (
-        // <div>
-            {/* {props.songs.slice(0, 1).map(song => { */}
-                    // const audio = new Audio(song.preview);
-                // <span>
-                    {/* <div className="stopMusic" onClick={e => audio.pause()}>stop</div> */}
-                {/* </span> */}
-            // })}
-        {/* </div> */}
-    // )
-// }
+function ExplorePlayMusic(props) {
+    return (
+        <div>
+            {props.songs.slice(0, 1).map(song => {
+                const audio = new Audio(song.preview);
+                audio.play();
+                <span>
+                    hello
+                    <div className="stopMusic" onClick={e => {console.log("stop music");audio.pause()}}>stop</div>
+                </span>
+            })}
+        </div>
+    )
+}
 
 export { ExploreArtistsView, ExplorePlayMusic };

@@ -6,14 +6,25 @@
 }
 
 html{
-	background: linear-gradient(180deg,#151443 70%, black 100%);
-	/* height: 100%; */
+	background-color: #151443;
+	height: 2000px;
+	background: cover;
+	background-size: cover;
+	  
 }
 
-.background{
+.topBar{
 	background: linear-gradient(black 60%, #151443 100%);
 	height: 30vh;
 	position: relative;
+}
+
+.bottomBar{
+	background: linear-gradient(black 60%, #151443 100%);
+	height: 30vh;
+	position: fixed;
+	bottom: 0;
+
 }
 
 .top{

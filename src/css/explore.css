@@ -1,5 +1,7 @@
+
 .explorePage{
     width: 100%;
+    height: 100%;
 }
 .exploreView{
     display: inline-block;
@@ -44,7 +46,9 @@
 }
 
 .stopMusic{
-    size: 500px;
+    height: 200px;
     background-color: red;
     margin-bottom: 500px;
+    position: relative;
+    z-index: 1;
 }

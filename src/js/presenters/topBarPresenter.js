@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TopbarView } from '../views/topbarView';
+import  TopbarView  from '../views/topbarView';
 
 
 function TopBarPresenter(props) {
