@@ -91,13 +91,15 @@
     height: 70%;
 }
 
-.boximg{
-  /*  margin: 0 auto;*/
+.starimg{
+    margin: 0 auto;
     background-color: #151443;
     width: fit-content;
     height: fit-content;
     text-align: center;
     font-size: 3vw;
+    color: white;
+    cursor: pointer;
 }
 
 .arrow{
@@ -106,6 +108,7 @@
     position: absolute;
     bottom: 4.8vh;
     right: 1.05vw;
+    cursor: pointer;
 }
 
 .leftarrow{
@@ -118,4 +121,5 @@
     border-radius: 8px;
     text-size-adjust: 80%;
     background-color: rgba(176,176,176, 0.8);
+    cursor: pointer;
 }
