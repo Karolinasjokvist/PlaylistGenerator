@@ -1,4 +1,3 @@
-import { getQueriesForElement } from '@testing-library/react';
 import React, { Component } from 'react';
 import '../../css/generateStartView.css';
 
