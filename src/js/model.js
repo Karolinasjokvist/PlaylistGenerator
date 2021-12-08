@@ -20,11 +20,13 @@ class Model {
             id: "113",
             name: "Dance",
             img: "https://images.freeimages.com/images/large-previews/7ef/laser-effects-in-the-hague-1190079.jpg"
+
         },
         {
             id: "165",
             name: "R&B",
             img: "https://images.freeimages.com/images/large-previews/c76/late-night-1550537.jpg"
+
         },
         {
             id: "106",
@@ -71,18 +73,15 @@ class Model {
     }
 
     addToList(artist){
-        if(this.artists.some(a => a.id === artist.id)){
-            return;
-        }
         
         this.artists = [...this.artists, artist];
         this.notifyObservers();
     }
 
     removeFromList(artistData){
-        // if (!this.addedToMenu(dishData)) {
-            // return;
-        // }
+        if(!(this.artists.some(a => a.id === artistData))){
+            return;
+        }
         this.artists = this.artists.filter((artist) => artist.id !== artistData);
         this.notifyObservers();
     }

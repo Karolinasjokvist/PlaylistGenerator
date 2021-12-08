@@ -1,30 +1,32 @@
 import React, { Component } from 'react';
 export class PlaylistModel {
-    constructor(playlistName = "MyPlaylist", numberOfSongs = [], explicit = true, genres = [], 
-                artists = [], currentSong = null, songs = []) 
+    constructor() 
     {
-        this.playlistName = playlistName;
-        this.numberOfSongs = numberOfSongs;
-        this.defaultNumberOfSongs();
-        this.explicit = explicit;
-        this.genres = genres;
-        this.artists = artists;
-        this.currentSong = currentSong;
-        this.songs = songs;
+        this.playlistName = "MyPlaylist";
+        this.numberOfSongs = null;
+        this.explicit = true;
+        this.genres = [];
+        this.currentSong = null;;
+        this.songs = [];
     }
 
-    addedGenre(genre){
-        if(this.genres.some(g => g.id === genre)){
-            return true;
+    addGenre(genreID, value){
+        if(value === 0){
+            this.removeGenre(genreID);
+            return;
         }
-        return false;
+                
+        this.genres = [...this.genres, genreID];
+        this.genres.find(x => x === genreID).value = value;
+
+        this.notifyObservers();
     }
 
-    defaultNumberOfSongs(){
-        this.numberOfSongs[10] = false;
-        this.numberOfSongs[20] = false;
-        this.numberOfSongs[30] = false;
+    removeGenre(genreID){
+        this.genres = this.genres.filter((genre) => genre.id !== genreID);
+        this.notifyObservers();
     }
+
 
     currentNumberOfSongs(length){
         this.numberOfSongs.forEach(element => {
@@ -61,5 +63,17 @@ export class PlaylistModel {
 
     addArtist(artist){
         this.artists = [...this.artists, artist];
+    }
+
+    addObserver(callback) {
+        this.observers = [... this.observers, callback];
+    }
+    removeObserver(callback) {
+        this.observers = this.observers.filter(obs => obs !== callback);
+    }
+    notifyObservers() {
+        this.observers.forEach(cb => {
+            try { cb() } catch (e) { console.log(e) }
+        });
     }
 }

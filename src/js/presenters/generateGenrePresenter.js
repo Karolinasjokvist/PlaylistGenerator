@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Genres } from '../genres';
-import  GenerateGenreView  from '../views/generateGenreView';
+import  {GenerateGenreView, ButtonView}  from '../views/generateGenreView';
 
 
 function GenerateGenrePresenter(props) {
@@ -10,6 +10,7 @@ function GenerateGenrePresenter(props) {
         <div>
             {<GenerateGenreView genres = {genres.list} 
                 genreChosen = {(id) => props.model.setCurrentGenre(id)}/>}
+            <ButtonView />
         </div>
     );
 }

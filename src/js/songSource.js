@@ -30,6 +30,10 @@ export const SongSource = {   // JS object creation literal
     searchSongs(params) {
         return SongSource.apiCall('/search/artist?q='
             + new URLSearchParams(params));
+    },
+
+    getRadiosFromGenre(id){
+        return SongSource.apiCall("/genre/"+ id +"/radios");
     }
 
 };
