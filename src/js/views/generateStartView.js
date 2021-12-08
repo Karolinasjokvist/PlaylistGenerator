@@ -1,3 +1,4 @@
+import { getQueriesForElement } from '@testing-library/react';
 import React, { Component } from 'react';
 import '../../css/generateStartView.css';
 
@@ -13,24 +14,24 @@ export function GenerateStartView(props) {
     return (
         <div className>
             <div>
-                <button className="buttonBackG" onClick ={e => {window.location.hash = "#start"}}>←</button>
+                <button className="buttonBackG" onClick={e => {window.location.hash = "#start"}}>←</button>
                 <div className="textTopG">
                     How many songs would you like in your playlist?
                 </div>
             </div>
             <div className="menuG">
-                <div className="menuItemG">
+                <div className="menuItemG" onClick={props.currentNumberOfSongs(10)}>
                     <button className="buttonLeftG">
                         <p>Short<br></br>10 songs</p>
                     </button>
                 </div>
                 <div className="menuItemG">
-                    <button className="midButtonG">
+                    <button className="midButtonG" onClick={props.currentNumberOfSongs(20)}>
                         <p>Medium<br></br>20 songs</p>
                     </button>
                 </div>
                 <div className="menuItemG">
-                    <button className="buttonRightG">
+                    <button className="buttonRightG" onClick={props.currentNumberOfSongs(30)}>
                         <p>Long<br></br>30 songs</p>
                     </button>
                 </div>
@@ -44,7 +45,7 @@ export function GenerateStartView(props) {
                         <span className="slider round"></span>
                     </label>
                 </div>
-                <button className="buttonNextG" onClick ={e => {window.location.hash = "generateGenre"}}>→</button>
+                <button className="buttonNextG" onClick={e => {window.location.hash = "generateGenre"}}>→</button>
             </div>
         </div>
     )
