@@ -13,7 +13,7 @@ function GenerateArtistsPresenter(props) {
 
     React.useEffect(() => {
         const obs = () => {
-            
+            setDataArtists(props.model.artists);
         }
         props.model.addObserver(obs);
         return () => props.model.removeObserver(obs);
@@ -34,9 +34,13 @@ function GenerateArtistsPresenter(props) {
 
             {PromiseNoRender(promise, data, error) ||
                 (<SearchResultsView searchResults={data.data}
-                    addArtist={(artist) => {props.model.addToList(artist); setDataArtists()}}
-                 />)}
-            <AddedArtistsView artists={props.model.artists} />
+                    addArtist={(artist) => { (props.model.artists.length < 3)? props.model.addToList(artist): <fFullList />}}
+                />)}
+
+            {PromiseNoRender("not null", dataArtists, error) || (
+                <AddedArtistsView artists={dataArtists}
+                    removeArtist={(artist) => { props.model.removeFromList(artist) }} 
+                />)}
         </div>
     );
 

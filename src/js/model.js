@@ -64,22 +64,6 @@ class Model {
         this.currentGenreArtists = null;
         this.currentGenreError = null;
         this.notifyObservers();
-
-        // if (this.currentGenre) {
-        // SongSource.getArtistsFromGenre(this.currentGenre)
-        // .then(data => {
-        // if(this.currentGenre === id){
-        // this.currentGenreArtists = data
-        // this.notifyObservers()
-        // }
-        // })
-        // .catch(error => {
-        // if(this.currentGenre === id){
-        // this.currentGenreError = error
-        // this.notifyObservers()
-        // }
-        // });
-        // }
     }
 
     getGenreName(id){
@@ -87,7 +71,19 @@ class Model {
     }
 
     addToList(artist){
+        if(this.artists.some(a => a.id === artist.id)){
+            return;
+        }
+        
         this.artists = [...this.artists, artist];
+        this.notifyObservers();
+    }
+
+    removeFromList(artistData){
+        // if (!this.addedToMenu(dishData)) {
+            // return;
+        // }
+        this.artists = this.artists.filter((artist) => artist.id !== artistData);
         this.notifyObservers();
     }
 
