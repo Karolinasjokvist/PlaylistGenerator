@@ -14,6 +14,13 @@ function GenerateArtistsView(props) {
         </div>
     )
 }
+function ButtonView(){
+    return(
+        <div className="button">
+            <button className="buttonNext" onClick ={e => {window.location.hash = "#generateGenre"}}>→</button>
+        </div>
+    )
+}
 
 function SearchResultsView(props) {
     var artists = props.searchResults.filter((x) => !(x.name.includes("feat.")))
@@ -51,4 +58,4 @@ function FullList(){
 
 }
 
-export { GenerateArtistsView, SearchResultsView, AddedArtistsView, FullList };
+export { GenerateArtistsView, SearchResultsView, AddedArtistsView, FullList, ButtonView };

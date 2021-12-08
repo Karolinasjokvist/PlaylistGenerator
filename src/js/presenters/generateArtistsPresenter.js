@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AddedArtistsView, GenerateArtistsView, SearchResultsView } from '../views/generateArtistsView';
+import { AddedArtistsView, GenerateArtistsView, SearchResultsView, FullList, ButtonView } from '../views/generateArtistsView';
 import PromiseNoRender from '../promiseNoRender';
 import { SongSource } from '../songSource';
 
@@ -30,11 +30,12 @@ function GenerateArtistsPresenter(props) {
                         .catch((error) => setError(error))
                     );
                 }} />
+            <ButtonView />
 
 
             {PromiseNoRender(promise, data, error) ||
                 (<SearchResultsView searchResults={data.data}
-                    addArtist={(artist) => { (props.model.artists.length < 3)? props.model.addToList(artist): <fFullList />}}
+                    addArtist={(artist) => { (props.model.artists.length < 3)? props.model.addToList(artist): <FullList />}}
                 />)}
 
             {PromiseNoRender("not null", dataArtists, error) || (
