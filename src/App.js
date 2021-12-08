@@ -4,6 +4,7 @@ import  ExploreArtistsPresenter from './js/presenters/exploreArtistsPresenter';
 import  ExploreGenrePresenter  from './js/presenters/exploreGenrePresenter';
 import  GenerateStartPresenter  from './js/presenters/generateStartPresenter';
 import  GenerateGenrePresenter  from './js/presenters/generateGenrePresenter';
+import GenerateArtistsPresenter from './js/presenters/generateArtistsPresenter';
 import  LoginPresenter  from './js/presenters/loginPresenter';
 import  RegisterPresenter  from './js/presenters/registerPresenter';
 import  MyPlaylistsPresenter  from './js/presenters/myPlaylistsPresenter';
@@ -31,6 +32,7 @@ function App(props) {
       <Show hash="#exploreArtists" class="mainContent debug"><ExploreArtistsPresenter model={props.model}/></Show>
       <Show hash="#generateStart" class="mainContent debug"><GenerateStartPresenter model={props.model}/></Show>
       <Show hash="#generateGenre" class="mainContent debug"><GenerateGenrePresenter model={props.model}/></Show>
+      <Show hash="#generateArtists" class="mainContent debug"><GenerateArtistsPresenter model={props.model}/></Show>
       <Show hash="#myPlaylists" class="mainContent debug"><MyPlaylistsPresenter model={props.model}/></Show>
       <Show hash="#login" class="mainContent debug"><LoginPresenter model={props.model}/></Show>
       <Show hash="#register" class="mainContent debug"><RegisterPresenter model={props.model}/></Show>

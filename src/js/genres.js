@@ -47,11 +47,6 @@ export class Genres{
                 name:"Soul and Funk",
                 img:"https://images.freeimages.com/images/large-previews/253/con-alma-de-guitarra-ii-1427669.jpg"
             },
-            // {
-                // id:"153",
-                // name:"Blues",
-                // img:"https://images.freeimages.com/images/large-previews/837/cd-dvd-disc-1576375.jpg"
-            // }
             {
                 id:"152",
                 name:"Rock",

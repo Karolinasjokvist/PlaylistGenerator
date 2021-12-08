@@ -16,7 +16,6 @@ function ExploreArtistsPresenter(props) {
 
 
     React.useEffect(() => {
-        console.log("hej")
         const obs = () => {
             setPromise(
                 SongSource.getArtistsFromGenre(props.model.currentGenre)
@@ -30,9 +29,11 @@ function ExploreArtistsPresenter(props) {
 
     return (
         <div>
+            {console.log(props.model.getGenreName(props.model.currentGenre))}
             {PromiseNoData(promise, data, error) || (
                 <ExploreArtistsView artist={data.data}
                                     genre={props.model.currentGenre}
+                                    genreName={props.model.getGenreName(props.model.currentGenre)}
                     func={(id) => {
                         console.log(id)
                         setPromiseSongs(
@@ -41,7 +42,7 @@ function ExploreArtistsPresenter(props) {
                                 .catch((errorSongs) => setErrorSongs(errorSongs)),
                         )
                     }} />
-            )}{promiseNoRender(promiseSongs, dataSongs, errorSongs) || <ExplorePlayMusic songs={dataSongs.data}/>}
+            )}{promiseNoRender(promiseSongs, dataSongs, errorSongs) || (<ExplorePlayMusic songs={dataSongs.data}/>)}
         </div>
     );
 }

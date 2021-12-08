@@ -12,19 +12,19 @@
 }
 
 .exploreImgGenre{
-    border-radius: 20px;
+    border-radius: 10px;
     cursor: pointer;
     object-fit: cover;
-    width: 70%; 
+    width: 90%; 
     height: 80%; 
     text-align: center;
     filter: sepia(50%);
 }
 .exploreImgArtist{
-    border-radius: 20px;
+    border-radius: 10px;
     cursor: pointer;
     object-fit: cover;
-    width: 70%; 
+    width: 90%; 
     height: 80%; 
     text-align: center;
     filter: sepia(50%);
@@ -43,6 +43,7 @@
     font-size: 300%;
     text-align: center;
     margin-top: 0px;
+    padding-bottom: 20px;
 }
 
 .stopMusic{

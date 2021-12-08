@@ -14,11 +14,6 @@ export const SongSource = {   // JS object creation literal
                 .then(response => response.json());
 
     },   // comma between object entries
-    
-    searchSongs(params) {
-        return this.apiCall('/infos')
-            .then(data => { return data.results });
-    },
 
     getSongDetails(id) {
         return SongSource.apiCall('/track/' + id);
@@ -30,6 +25,11 @@ export const SongSource = {   // JS object creation literal
 
     getSongsFromArtist(id){
         return SongSource.apiCall("/artist/"+ id + "/top");
+    },
+
+    searchSongs(params) {
+        return SongSource.apiCall('/search/artist?q='
+            + new URLSearchParams(params));
     }
 
 };

@@ -4,9 +4,9 @@ import '../../css/explore.css';
 function ExploreArtistsView(props) {
     return (
         <div className="explorePage" >
-            <p className="title">{"Explore artists in the"} {props.genre.name} {"genre!"}</p>
+            <div className="title">Explore artists in the {props.genreName} genre!</div>
             {props.artist.slice(0, 15).map(artist =>
-                <span className="exploreView" key={artist.id} onClick={e => props.func(artist.id)} >
+                <span className="exploreView" key={artist.id} onClick={e => { props.func(artist.id) }} >
                     <img src={artist.picture_xl} className="exploreImgArtist"></img>
                     <div>{artist.name}</div>
                 </span>
@@ -15,20 +15,26 @@ function ExploreArtistsView(props) {
     );
 }
 
+
+
 function ExplorePlayMusic(props) {
+    console.log("hew")
+    const audio = new Audio();
     return (
-        <div>
-            {props.songs.slice(0, 1).map(song => {
-                const audio = new Audio(song.preview);
-                audio.play();
-                <span>
-                    hello
-                    <div className="stopMusic" onClick={e => {console.log("stop music");audio.pause()}}>stop</div>
-                </span>
-            })}
+        <div className="stopMusic">
+            {props.songs.slice(0, 1).map(song =>
+            {if(true){
+                audio.src = song.preview
+            }console.log(audio.src)}
+            )}
+            {playMusic(audio)}
+            <div className="stopMusic" onClick={e => { console.log("stop music"); audio.pause() }}>stop</div>
         </div>
     )
 }
 
-//export { ExploreArtistsView, ExplorePlayMusic };
-export { ExploreArtistsView};
+function playMusic(audio){
+    audio.play()
+}
+
+export { ExploreArtistsView, ExplorePlayMusic };
