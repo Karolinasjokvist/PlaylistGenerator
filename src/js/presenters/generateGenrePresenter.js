@@ -8,8 +8,7 @@ function GenerateGenrePresenter(props) {
 
     return (
         <div>
-            {<GenerateGenreView genres = {genres.list} 
-                genreChosen = {(id) => props.model.setCurrentGenre(id)}/>}
+            {<GenerateGenreView genres = {genres.list}/>}
             <ButtonView />
         </div>
     );

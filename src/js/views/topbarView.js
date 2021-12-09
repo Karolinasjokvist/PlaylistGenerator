@@ -6,8 +6,8 @@ function TopbarView() {
         <div className="topBar">
             <div className="top">
                 <div className="topbuttons">
-                    <button className="b1" onClick ={e => {window.location.hash = "#register"}}>Register</button>
-                    <button className="b1" onClick ={e => {window.location.hash = "#login"}}>Log in</button>
+                    <button className="b1" onClick={e => { window.location.hash = "#register" }}>Register</button>
+                    <button className="b1" onClick={e => { window.location.hash = "#login" }}>Log in</button>
                 </div>
             </div>
             <div className="head">PlaylistGenerator</div>
@@ -21,6 +21,7 @@ function TopbarView() {
         // <div className="bottomBar"></div>
     )
 }
+
 
 export default TopbarView;
 
