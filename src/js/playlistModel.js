@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 export class PlaylistModel {
     constructor() 
     {
@@ -27,8 +28,8 @@ export class PlaylistModel {
         this.notifyObservers();
     }
 
-
     currentNumberOfSongs(length){
+        console.log(length)
         this.numberOfSongs.forEach(element => {
             if(length === element){
                 this.numberOfSongs[element] = true;
