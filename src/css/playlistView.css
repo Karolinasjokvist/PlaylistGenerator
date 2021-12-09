@@ -1,0 +1,7 @@
+.playButton{
+    background: none;
+    border: 0;
+    font-size: 2vmax;
+    cursor: pointer;
+    color: black;
+}

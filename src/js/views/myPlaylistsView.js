@@ -22,13 +22,13 @@ function MyPlaylistsView(props) {
                         </tr>
                         
                         <tr>
-                            <td>&#9658; Playlist1 <button className="pencil">&#128393;</button></td>
+                            <td>&#9658; Playlist1 <button className="pencil" onClick ={e => {window.location.hash = "#playlist"}}>&#128393;</button></td>
                             <td>2021/12/09</td>
                             <td>10</td>
                         </tr>
                         
                         <tr>
-                            <td>&#9658; Playlist2 <button className="pencil">&#128393;</button></td>
+                            <td>&#9658; Playlist2 <button className="pencil" onClick ={e => {window.location.hash = "#playlist"}}>&#128393;</button></td>
                             <td>2021/12/05</td>
                             <td>20</td>
                         </tr>
