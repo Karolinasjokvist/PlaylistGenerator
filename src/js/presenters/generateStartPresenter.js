@@ -5,7 +5,8 @@ function GenerateStartPresenter(props){
 
     return (
         <div>
-            {<GenerateStartView/>}
+            {<GenerateStartView numberOfSongsChosen = {(length)=>props.model.currentNumberOfSongs(length)}
+                explicitChosen = {(choice)=>props.model.setExplicit(choice)}/>}
         </div>
     );
 }

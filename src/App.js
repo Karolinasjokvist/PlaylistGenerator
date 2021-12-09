@@ -30,7 +30,7 @@ function App(props) {
       <Show hash="#start" class="mainContent debug"><StartPresenter/></Show>
       <Show hash="#exploreGenre" class="mainContent debug"><ExploreGenrePresenter model={props.model} /></Show>
       <Show hash="#exploreArtists" class="mainContent debug"><ExploreArtistsPresenter model={props.model}/></Show>
-      <Show hash="#generateStart" class="mainContent debug"><GenerateStartPresenter model={props.model}/></Show>
+      <Show hash="#generateStart" class="mainContent debug"><GenerateStartPresenter model={props.pmodel}/></Show>
       <Show hash="#generateGenre" class="mainContent debug"><GenerateGenrePresenter model={props.model}/></Show>
       <Show hash="#generateArtists" class="mainContent debug"><GenerateArtistsPresenter model={props.model}/></Show>
       <Show hash="#myPlaylists" class="mainContent debug"><MyPlaylistsPresenter model={props.model}/></Show>
