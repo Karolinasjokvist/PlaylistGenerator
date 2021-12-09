@@ -92,6 +92,7 @@ html{
     border-radius: 30px;
     position: absolute;
     transition-duration: 0.4s;
+    margin-right: 7%;
     right: 0;
 }
 
@@ -127,10 +128,23 @@ html{
     background-color: rgb(125, 94, 160);
 }
 
+.buttonRightG:focus{
+    background-color: rgb(125, 94, 160);
+}
+
+.buttonLeftG:focus{
+    background-color: rgb(125, 94, 160);
+}
+
+.midButtonG:focus{
+    background-color: rgb(125, 94, 160);
+}
+
 .textTopG{
     font-size: 230%;
     place-content: center;
     text-align: center;
+    margin-bottom:50px;
 }
 
 .textBottomG{
@@ -144,6 +158,8 @@ html{
     display: inline-block;
     width: 60px;
     height: 34px;
+    margin-top: 20px;
+    margin-bottom: 50px;
 }
 
 /* Hide default HTML checkbox */
