@@ -140,14 +140,14 @@ html{
     background-color: rgb(125, 94, 160);
 }
 
-.textTopG{
-    font-size: 230%;
+.titleTextG{
+    font-size: 300%;
     place-content: center;
     text-align: center;
     margin-bottom:50px;
 }
 
-.textBottomG{
+.explicitTextG{
     font-size: 200%;
     place-content: center;
     text-align: center;

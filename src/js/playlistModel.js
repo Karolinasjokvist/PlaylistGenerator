@@ -9,7 +9,7 @@ export class PlaylistModel {
         this.genres = [
             {
                 id:"42402",
-                value:0.5
+                value:0.4
             }
         ];
         this.currentSong = null;
@@ -36,13 +36,8 @@ export class PlaylistModel {
 
     currentNumberOfSongs(length){
         console.log(length)
-        this.numberOfSongs.forEach(element => {
-            if(length === element){
-                this.numberOfSongs[element] = true;
-            }else{
-                this.numberOfSongs[element] = false;
-            }
-        });
+        this.numberOfSongs = length;
+        console.log(length)
     }
 
     addGenreToPlaylist(genre, amount){
@@ -50,7 +45,9 @@ export class PlaylistModel {
     }
 
     setExplicit(choice){
+        console.log(choice)
         this.explicit = choice;
+        console.log(this.explicit)
     }
 
     setPlaylistName(name){
