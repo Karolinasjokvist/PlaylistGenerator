@@ -112,6 +112,11 @@ html{
     transition-duration: 0.4s;
 }
 
+.buttonNextG:disabled{
+    background-color: rgb(116, 116, 116);
+    pointer-events: none;
+}
+
 .buttonNextG:hover{
     background-color: rgb(125, 94, 160);
 }

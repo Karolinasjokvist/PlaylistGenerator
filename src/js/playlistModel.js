@@ -29,9 +29,15 @@ export class PlaylistModel {
     }
 
     currentNumberOfSongs(length){
-        console.log(length)
         this.numberOfSongs = length;
-        console.log(length)
+        console.log(this.numberOfSongs)
+    }
+
+    getCurrentNumberOfSongs(){
+        if(this.numberOfSongs == 0){
+            return true;
+        }
+        return false;
     }
 
     addGenreToPlaylist(genre, amount){
@@ -39,7 +45,6 @@ export class PlaylistModel {
     }
 
     setExplicit(choice){
-        console.log(choice)
         this.explicit = choice;
         console.log(this.explicit)
     }
