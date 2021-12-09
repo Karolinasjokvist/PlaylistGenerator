@@ -5,12 +5,12 @@ import App from './App';
 import Model from './js/model';
 import { PlaylistModel } from './js/playlistModel';
 
-const model = new Model();
-const pmodel = new PlaylistModel();
+const model=new Model();
+const pmodel=new PlaylistModel();
 ReactDOM.render(
   <React.StrictMode>
-    <App model = {model}
-      pmodel = {pmodel}/>
+    <App model={model}
+      pmodel={pmodel}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -34,6 +34,10 @@ export const SongSource = {   // JS object creation literal
 
     getRadiosFromGenre(id){
         return SongSource.apiCall("/genre/"+ id +"/radios");
+    },
+
+    getTracklistFromRadio(id){
+        return SongSource.apiCall("/radio/" + id + "/tracks");
     }
 
 };

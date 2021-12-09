@@ -4,27 +4,33 @@ export class PlaylistModel {
     constructor() 
     {
         this.playlistName = "MyPlaylist";
-        this.numberOfSongs = null;
-        this.explicit = false;
-        this.genres = [];
-        this.currentSong = null;;
+        this.numberOfSongs = 10;
+        this.explicit = true;
+        this.genres = [
+            {
+                id:"42402",
+                value:0.4
+            }
+        ];
+        this.currentSong = null;
         this.songs = [];
     }
 
-    addGenre(genreID, value){
+    addGenre(radioID, value){
         if(value === 0){
-            this.removeGenre(genreID);
+            this.removeGenre(radioID);
             return;
         }
                 
-        this.genres = [...this.genres, genreID];
-        this.genres.find(x => x === genreID).value = value;
+        this.genres = [...this.genres, {id:radioID}];
+        this.genres.find(x => x.id === radioID).value = value;
+        console.log(this.genres)
 
-        this.notifyObservers();
+        // this.notifyObservers();
     }
 
-    removeGenre(genreID){
-        this.genres = this.genres.filter((genre) => genre.id !== genreID);
+    removeGenre(radioID){
+        this.genres = this.genres.filter((genre) => genre.id !== radioID);
         this.notifyObservers();
     }
 
@@ -60,8 +66,8 @@ export class PlaylistModel {
         this.currentSong = song;
     }
 
-    addSongToPlaylist(song){
-       this.songs = [...this.songs, song]; 
+    addSongsToPlaylist(arrayWithSongs){
+       this.songs = this.songs.concat(arrayWithSongs);
     }
 
     addArtist(artist){
