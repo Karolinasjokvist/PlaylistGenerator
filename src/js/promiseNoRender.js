@@ -13,7 +13,7 @@ function promiseNoRender(promise, data, error) {
         return(<div></div>);
     } else if (data.error !== undefined){
         console.log("quota limit")
-        return(<div></div>);
+        return("quota limit");
     }
     console.log("data exists")
     return false;
