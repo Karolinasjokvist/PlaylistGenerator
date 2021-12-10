@@ -13,6 +13,7 @@ import  PlaylistPresenter  from './js/presenters/playlistPresenter';
 import Show from './js/presenters/showPresenter';
 import StartPresenter from './js/presenters/startViewPresenter';
 import { SongSource } from './js/songSource';
+import GeneratedPlaylistPresenter from './js/presenters/generatedPlaylistPresenter';
 import PlaylistInfoPresenter from './js/presenters/playlistInfoPresenter';
 
 
