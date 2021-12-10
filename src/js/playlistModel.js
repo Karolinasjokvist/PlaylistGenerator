@@ -4,7 +4,7 @@ class PlaylistModel {
     {
         this.playlistName = "MyPlaylist";
         this.numberOfSongs = 0;
-        this.explicit = true;
+        this.explicit = false;
         this.genres = [];
         this.currentSong = null;
         this.songs = [];
@@ -53,17 +53,14 @@ class PlaylistModel {
     currentNumberOfSongs(length){
         this.numberOfSongs = length;
         console.log(this.numberOfSongs)
-    }
-
-    getCurrentNumberOfSongs(){
-        if(this.numberOfSongs == 0){
-            return true;
-        }
-        return false;
+        this.notifyObservers();
     }
 
     setExplicit(choice){
+        console.log(choice)
         this.explicit = choice;
+        console.log(this.explicit);
+        this.notifyObservers();
     }
 
     setPlaylistName(name){

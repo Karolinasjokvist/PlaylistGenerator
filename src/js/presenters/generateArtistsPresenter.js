@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { AddedArtistsView, GenerateArtistsView, SearchResultsView, FullList, ButtonView } from '../views/generateArtistsView';
 import PromiseNoRender from '../promiseNoRender';
 import { SongSource } from '../songSource';
-import GeneratePlaylist from '../generatePlaylist';
 
 function GenerateArtistsPresenter(props) {
     const [promise, setPromise] = React.useState(null);
