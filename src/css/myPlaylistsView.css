@@ -4,16 +4,101 @@
     display: flex;
 }
 
-.playlistMenuItem{
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    position: relative;
+.leftbox{
+    width: 20vw;
+    height: 70vh;
+  /*  border-style: solid;
+    border-color: blue;*/
 }
 
-.playlistButton{
+.leftarr{
+    margin-left: 10%;
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+    font-size: 3vw;
+    color: black;
+    border-radius: 8px;
+    text-size-adjust: 80%;
+    background-color: rgba(176,176,176, 0.8);
+    cursor: pointer;
+}
+
+.middlebox{
+    width: 65vw;
+    height: 70vh;
+    /*border-style: solid;
+    border-color: blue;*/
+}
+
+.rightbox{
+    width: 15vw;
+    height: 70vh;
+   /* border-style: solid;
+    border-color: blue;*/
+}
+
+.toprow{
+    width: 100%;
     height: 10%;
+  /*  border-style: solid;
+    border-color: red;*/
+    display: flex;
+}
+
+.save{
+    background-color: #151443; 
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+    font-size: 3vmax;
+    border-radius: 8px;
+    text-size-adjust: 80%;
+    cursor: pointer;
+}
+
+.savecontainer{
+    margin-left: auto; 
+    margin-right: 0;
+}
+
+.spacing{
     width: 70%;
-    background-color: rgb(51, 50, 51);
+   /* border-style: solid;
+    border-color: yellow;*/
+}
+
+.titletext{
+    font-size: 3vmax;
+}
+
+.playlisttable{
+    margin-top: 5px;
+    width: 100%;
+    background-color: rgba(176,176,176, 0.8);
+    /*border-style: solid;*/
+    border-radius: 10px;
+    border-collapse: collapse;
+    padding-bottom: 10px;
+}
+
+td {
+    text-align: center;
+    vertical-align: middle;
+    color: black;
+    font-weight: bold;
+    font-size: 2vmax;
+  }
+
+tr{
+    border-bottom: 1pt solid black;
+}
+
+.pencil{
+    background: none;
+    border: 0;
+    font-size: 2vmax;
+    cursor: pointer;
+    color: black;
+    font-weight: bold;
 }
