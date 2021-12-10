@@ -3,7 +3,7 @@ class PlaylistModel {
     constructor() 
     {
         this.playlistName = "MyPlaylist";
-        this.numberOfSongs = 10;
+        this.numberOfSongs = 0;
         this.explicit = true;
         this.genres = [];
         this.currentSong = null;

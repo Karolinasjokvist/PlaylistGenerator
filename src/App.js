@@ -9,6 +9,7 @@ import  LoginPresenter  from './js/presenters/loginPresenter';
 import  RegisterPresenter  from './js/presenters/registerPresenter';
 import  MyPlaylistsPresenter  from './js/presenters/myPlaylistsPresenter';
 import  TopBarPresenter  from './js/presenters/topBarPresenter';
+import  PlaylistPresenter  from './js/presenters/playlistPresenter';
 import Show from './js/presenters/showPresenter';
 import StartPresenter from './js/presenters/startViewPresenter';
 import { SongSource } from './js/songSource';
@@ -42,6 +43,7 @@ function App(props) {
       <Show hash="#register" class="mainContent debug"><RegisterPresenter model={props.model}/></Show>
       {/* <Show hash="#generatedPlaylist" class="mainContent debug"><GeneratePlaylistPresenter pmodel={props.pmodel}/></Show> */}
       <Show hash="#playlistInfo" class="mainContent debug"><PlaylistInfoPresenter pmodel={props.pmodel}/></Show>
+      <Show hash="#playlist" class="mainContent debug"><PlaylistPresenter model={props.model}/></Show>
     </div>
   );
 }
