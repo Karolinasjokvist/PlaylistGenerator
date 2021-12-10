@@ -1,36 +1,52 @@
 import React, { Component } from 'react';
-
-export class PlaylistModel {
+class PlaylistModel {
     constructor() 
     {
         this.playlistName = "MyPlaylist";
         this.numberOfSongs = 10;
         this.explicit = true;
-        this.genres = [
-            {
-                id:"42402",
-                value:0.4
-            }
-        ];
+        this.genres = [];
         this.currentSong = null;
         this.songs = [];
+        this.observers = [];
+        this.total = 0;
     }
 
     addGenre(radioID, value){
-        if(value === 0){
+
+        if(value == 0){
+            console.log("remove")
             this.removeGenre(radioID);
+            this.setTotalPercent();
+            return;
+        }
+        if(this.genres.some(g => g.id === radioID)){
+            this.genres.find(g => g.id === radioID).value = (value/100);
+            this.setTotalPercent();
             return;
         }
                 
         this.genres = [...this.genres, {id:radioID}];
-        this.genres.find(x => x.id === radioID).value = value;
-        console.log(this.genres)
+        this.genres.find(x => x.id === radioID).value = (value/100);
+        console.log(this.genres);
+        this.setTotalPercent();
+        console.log(this.total)
 
-        // this.notifyObservers();
+
+        this.notifyObservers();
     }
 
     removeGenre(radioID){
         this.genres = this.genres.filter((genre) => genre.id !== radioID);
+        this.notifyObservers();
+    }
+
+    setTotalPercent(){
+        let total = 0;
+        this.genres.forEach(genre => {
+            total += genre.value;
+        });
+        this.total = total;
         this.notifyObservers();
     }
 
@@ -46,17 +62,13 @@ export class PlaylistModel {
         return false;
     }
 
-    addGenreToPlaylist(genre, amount){
-        this.genres[genre] = amount;
-    }
-
     setExplicit(choice){
         this.explicit = choice;
-        console.log(this.explicit)
     }
 
     setPlaylistName(name){
         this.playlistName = name;
+        this.notifyObservers();
     }
 
     setCurrentSong(song){
@@ -64,14 +76,17 @@ export class PlaylistModel {
             return;
         }
         this.currentSong = song;
+        this.notifyObservers();
     }
 
     addSongsToPlaylist(arrayWithSongs){
        this.songs = this.songs.concat(arrayWithSongs);
+       this.notifyObservers();
     }
 
     addArtist(artist){
         this.artists = [...this.artists, artist];
+        this.notifyObservers();
     }
 
     addObserver(callback) {
@@ -86,3 +101,5 @@ export class PlaylistModel {
         });
     }
 }
+
+export default PlaylistModel;

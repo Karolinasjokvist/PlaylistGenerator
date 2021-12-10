@@ -1,5 +1,3 @@
-import React, { Component } from 'react';
-import SongSource from './songSource';
 class Model {
     constructor() {
         this.currentGenre = "152";

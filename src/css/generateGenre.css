@@ -1,5 +1,6 @@
 html{
     height: 100%;
+    width: 100%;
 }
 
 .generatePage{
@@ -31,10 +32,11 @@ html{
 
 .button{
     position: absolute;
-    width: 100%;
+    width: 80%;
     height: 50px;
-    top: 30%;
+    top: 33%;
     right: 70px;
+    text-align: center;
 }
 
 .buttonNext{
@@ -56,5 +58,26 @@ html{
 
 .buttonNext:hover{
     background-color: rgb(125, 94, 160);
+}
+
+.buttonNext:disabled{
+    background-color: rgb(209, 209, 209);
+}
+
+.buttonNext[disabled]:hover{
+    background-color: rgb(209, 209, 209);
+}
+
+.percentStatus{
+    position: absolute;
+    bottom: 0;
+    right: 40%;
+    font-size: 200%;
+}
+
+.percent{
+    position: relative;
+    left: 18%;
+    bottom: 35px;
 }
 

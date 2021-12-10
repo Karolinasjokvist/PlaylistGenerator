@@ -3,32 +3,36 @@ import '../../css/generateGenre.css';
 
 function GenerateGenreView(props) {
     return (
-        console.log(props.genres),
         <div className="generatePage">
-            <p className="title">What genre are you interested in?</p>
+            <p className="title">What genres are you interested in?</p>
             {props.genres.map(genre =>
-                    <span className="generateView" key={genre.id}  >
-                        <img src={genre.img} className="generateImgGenre"></img>
-                        <div>{genre.name}</div>
-                        <input onChange = {e => value()} type="range" id="myRange" min="0" max="100" step="10" defaultValue="50"></input>
-                        <p id = "val"></p>
-                    </span>
-                )}
+                <span className="generateView" key={genre.id}  >
+                    <img src={genre.img} className="generateImgGenre"></img>
+                    <div>{genre.name}</div>
+                    <div className="slide">
+                        <input onChange={e => {e = value(genre.id,genre.name),props.setGenre(genre.radio,e)}} type="range" id={genre.id} min="0" max="100" step="20" defaultValue="0"></input>
+                        <div id={genre.name}>0</div><div className="percent">%</div>
+                    </div>
+                </span>
+            )}
         </div>
     );
 }
 
-function value(){
-    var x = document.getElementById("myRange").value;
-    document.getElementById("val").innerHTML = x;
+function value(range, genre) {
+    var x = document.getElementById(range).value;
+    document.getElementById(genre).innerHTML = x;
+    return x;
 }
 
-function ButtonView(){
-    return(
+function ButtonView(props) {
+    return (
+        console.log(props.totalPercent),
         <div className="button">
-            <button className="buttonNext" onClick ={e => {window.location.hash = "#generateArtists"}}>→</button>
+            <div className="percentStatus">{props.totalPercent*100+"%/100%"}</div>
+            <button className="buttonNext" disabled={!(props.totalPercent == 1)} onClick={e => { window.location.hash = "#generateArtists" }}>→</button>
         </div>
     )
 }
 
-export {GenerateGenreView, ButtonView};
+export { GenerateGenreView, ButtonView };
