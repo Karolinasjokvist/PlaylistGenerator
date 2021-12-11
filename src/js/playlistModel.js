@@ -9,6 +9,7 @@ class PlaylistModel {
         this.currentSong = null;
         this.songs = [];
         this.observers = [];
+        this.artists = [];
         this.total = 0;
     }
 
@@ -82,7 +83,19 @@ class PlaylistModel {
     }
 
     addArtist(artist){
+        if(this.artists.some(a => a.id === artist)){
+            return;
+        }
+    
         this.artists = [...this.artists, artist];
+        this.notifyObservers();
+    }
+
+    removeArtist(artist){
+        if(!(this.artists.some(a => a.id === artist))){
+            return;
+        }
+        this.artists = this.artists.filter((a) => a.id !== artist);
         this.notifyObservers();
     }
 

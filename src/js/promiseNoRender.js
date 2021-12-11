@@ -7,7 +7,7 @@ function promiseNoRender(promise, data, error) {
         return(<div></div>);
     } else if (data === null || data === undefined) {
         console.log("data")
-        return(<div></div>);
+        return ( <img class="loadingSymbol" src="http://www.csc.kth.se/~cristi/loading.gif"/>)
     } else if (error !== null) {
         console.log("error")
         return(<div></div>);

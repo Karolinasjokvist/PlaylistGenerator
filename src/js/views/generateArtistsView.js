@@ -14,7 +14,7 @@ function GenerateArtistsView(props) {
         </div>
     )
 }
-function ButtonView(props){
+function ButtonView(){
     return(
         <div className="button">
             <button className="buttonNext" onClick ={e => {window.location.hash = "#playlistInfo"}}>→</button>
