@@ -2,7 +2,7 @@ class PlaylistModel {
     constructor() 
     {
         this.playlistID ="1";
-        this.playlistName = "MyPlaylist";
+        this.playlistName = "Edit Name";
         this.numberOfSongs = 0;
         this.explicit = false;
         this.genres = [];

@@ -16,6 +16,9 @@ function PlaylistInfoPresenter(props) {
     const [artist, setArtist] = React.useState(props.pmodel.artists);
     const [amount, setAmount] = React.useState(props.pmodel.numberOfSongs);
     const [explicit, setExplicit] = React.useState(props.pmodel.explicit);
+    const [amountOfSongs, setAmountOfSongs] = React.useState(props.pmodel.songs.length);
+
+    let copy = [];
 
     React.useEffect(() => {
         const obs = () => {
@@ -23,6 +26,7 @@ function PlaylistInfoPresenter(props) {
             setArtist(props.pmodel.artists)
             setAmount(props.pmodel.numberOfSongs)
             setExplicit(props.pmodel.explicit)
+            setAmountOfSongs(props.pmodel.songs.length)
 
         };
         props.pmodel.addObserver(obs);
@@ -35,6 +39,7 @@ function PlaylistInfoPresenter(props) {
                                artist = {artist}
                                amount = {amount}
                                explicit = {explicit}
+                               amountOfSongs = {amountOfSongs}
                 generateFromRadio={() => {
                 props.pmodel.genres.map(genre => {
                     let array = []
@@ -45,7 +50,10 @@ function PlaylistInfoPresenter(props) {
                                 console.log(data)
                                 if (data.error === undefined) {
                                     array = pickSongs(data.data, genre.value, props.pmodel.numberOfSongs, props.pmodel.explicit);
-                                    props.pmodel.addSongsToPlaylist(array);
+                                    copy = copy.concat(array);
+                                    if(copy[props.pmodel.numberOfSongs/2] !== undefined){
+                                        props.pmodel.addSongsToPlaylist(copy)
+                                    }
                                 }
                             })
                             .catch((error) => setError(error)),
@@ -61,7 +69,10 @@ function PlaylistInfoPresenter(props) {
                                 console.log(data)
                                 if (data.error === undefined) {
                                     array = pickSongs(data.data, 1, props.pmodel.numberOfSongs, true);
-                                    props.pmodel.addSongsToPlaylist(array);
+                                    copy = copy.concat(array);
+                                    if(copy[props.pmodel.numberOfSongs/2] !== undefined){
+                                        props.pmodel.addSongsToPlaylist(copy)
+                                    }
                                     (console.log(props.pmodel.songs))
                                 };
                             })
@@ -72,7 +83,7 @@ function PlaylistInfoPresenter(props) {
             {
                 PromiseNoRender(promise, data, error) ||
                 PromiseNoRender(promiseArtist, dataArtist, errorArtist)||
-                (console.log(props.pmodel.songs))
+                <Seeplaylist />
             }
         </div>
     );
@@ -97,7 +108,6 @@ function pickSongs(arrayWithSongs, percentage, numberOfSongs, explicit) {
             songs[i] = arrayWithSongs[i];
         }
     }
-    console.log(songs)
     return songs;
 }
 

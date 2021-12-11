@@ -11,14 +11,22 @@ function PlaylistInfoView(props) {
                         <div>-{genre.name}{genre.value * 100}%</div>
                     )}
                 </div>
-                <div className="info">Your Artist: {props.artist !== undefined ? props.artist.name : "none"}</div>
+                <div className="info">Your Artist: {props.artist.name !== undefined ? props.artist.name : "none"}</div>
                 <div className="info">Length: {props.amount}</div>
                 <div className="info">Explicit songs: {(props.explicit) ? "true" : "false"}</div>
             </div>
-            <button onClick={e => { props.generateFromRadio(); props.generateFromArtist(); window.location.hash = "#generatedPlaylist" }} className="generateButton" >
+            <button onClick={e => {
+                props.generateFromRadio(); props.generateFromArtist();
+                console.log(props.amountOfSongs)
+            }} className="generateButton" >
                 Generate
             </button>
         </div>
+    )
+}
+function seePlaylist(){
+    return(
+        <div onClick={e => window.location.hash = "#generatedPlaylist"}>See your playlist</div>
     )
 }
 

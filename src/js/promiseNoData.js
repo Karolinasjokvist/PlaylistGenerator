@@ -20,9 +20,9 @@ function PromiseNoData(promise, data, error) {
 function noData() {
     return (
         <div className="noData">
-            Error
+            Quota limit
             <div className="noDataItem">
-                <div className="retryButton" onClick={e => window.location.hash = "#exploreGenre"}>Retry</div>
+                <div className="retryButton" onClick={e => window.location.hash = "#exploreGenre"}>Retry!</div>
             </div>
         </div >
     )

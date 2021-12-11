@@ -60,16 +60,26 @@
 .savecontainer{
     margin-left: auto; 
     margin-right: 0;
+    position: relative;
+    right: 0;
 }
 
 .spacing{
-    width: 70%;
+    width: 10%;
+    margin-right: 0;
    /* border-style: solid;
     border-color: yellow;*/
 }
-
-.titletext{
+.titleText{
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 50%;
     font-size: 3vmax;
+}
+.titleText::placeholder{
+    font-size: 3vmax;
+    color: white;
 }
 
 .playlisttable{
@@ -83,7 +93,6 @@
 }
 
 td {
-    text-align: center;
     vertical-align: middle;
     color: black;
     font-weight: bold;
