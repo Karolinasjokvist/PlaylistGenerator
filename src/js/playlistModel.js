@@ -1,6 +1,7 @@
 class PlaylistModel {
     constructor() 
     {
+        this.playlistID ="1";
         this.playlistName = "MyPlaylist";
         this.numberOfSongs = 0;
         this.explicit = false;
@@ -12,7 +13,7 @@ class PlaylistModel {
         this.total = 0;
     }
 
-    addGenre(radioID, value){
+    addGenre(radioID, value, name){
 
         if(value == 0){
             console.log("remove")
@@ -28,6 +29,7 @@ class PlaylistModel {
                 
         this.genres = [...this.genres, {id:radioID}];
         this.genres.find(x => x.id === radioID).value = (value/100);
+        this.genres.find(x => x.id === radioID).name = name;
         console.log(this.genres);
         this.setTotalPercent();
         console.log(this.total)

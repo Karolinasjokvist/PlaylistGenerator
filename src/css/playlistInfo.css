@@ -1,0 +1,37 @@
+.playlistInfoDiv{
+    width: 100%;
+    position: relative;
+    place-items: center;
+    
+}
+.playlistInfo{
+    background-color: blueviolet;
+    border-radius: 10px;
+    width: 30%;
+    height: 100%;
+    position: relative;
+    left: 35%;
+    right: 35%;
+    margin-top: 3%;
+    text-align: center;
+}
+
+.info{
+    font-size: 300%;
+}
+
+.generateButton{
+    background-color: rgb(51, 50, 51);
+    font-size: 350%;
+    border-radius: 5px;
+    width: 20%;
+    position: relative;
+    left: 40%;
+    right: 40%;
+    margin-top: 2%;
+    cursor: pointer;
+}
+
+.generateButton:hover{
+    background-color: rgb(125, 94, 160);
+}

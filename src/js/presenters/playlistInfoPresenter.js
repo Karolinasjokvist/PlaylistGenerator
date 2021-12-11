@@ -12,11 +12,29 @@ function PlaylistInfoPresenter(props) {
     const [dataArtist, setDataArtist] = React.useState(null);
     const [errorArtist, setErrorArtist] = React.useState(null);
 
+    const [genres, setGenres] = React.useState(props.pmodel.genres);
+    const [artist, setArtist] = React.useState(null);
+    const [amount, setAmount] = React.useState(null);
+    const [explicit, setExplicit] = React.useState(null);
+
+    React.useEffect(() => {
+        const obs = () => {
+            setGenres(props.pmodel.genres)
+            setArtist(props.pmodel.artists)
+            setAmount(props.pmodel.numberOfSongs)
+            setExplicit(props.pmodel.explicit)
+
+        };
+        props.pmodel.addObserver(obs);
+        return () => props.pmodel.removeObserver(obs);
+    }, []);
+
     return (
         <div>
-            {<PlaylistInfoView genres = {props.pmodel.genres}
-                               amount = {props.pmodel.numberOfSongs}
-                               explicit = {props.pmodel.explicit}
+            {<PlaylistInfoView genres = {genres}
+                               artist = {artist}
+                               amount = {amount}
+                               explicit = {explicit}
                 generateFromRadio={() => {
                 props.pmodel.genres.map(genre => {
                     let array = []
@@ -52,13 +70,14 @@ function PlaylistInfoPresenter(props) {
                 }}
             />}
             {
-                PromiseNoRender(promiseArtist, dataArtist, errorArtist) && props.pmodel.songs.length !== props.pmodel.numberOfSongs/2||
-                (console.log("next"),PromiseNoRender(promise, data, error)) ||  
+                PromiseNoRender(promise, data, error) ||
+                PromiseNoRender(promiseArtist, dataArtist, errorArtist)||
                 (console.log(props.pmodel.songs))
             }
         </div>
     );
 }
+// && props.pmodel.songs.length !== props.pmodel.numberOfSongs/2
 
 function pickSongs(arrayWithSongs, percentage, numberOfSongs, explicit) {
     let songs = [];

@@ -3,6 +3,7 @@ class Model {
         this.currentGenre = "152";
         this.observers = [];
         this.artists = [];
+        this.currentPlaylist = "1";
         this.genreList = [
         {
             id: "132",

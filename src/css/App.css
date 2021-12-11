@@ -37,3 +37,11 @@
     transform: rotate(360deg);
   }
 }
+
+.quotaLimit{
+  width: 20%;
+  font-size: 210%;
+  position: absolute;
+  left: 40%;
+  right: 40%;
+}

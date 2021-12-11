@@ -1,4 +1,5 @@
 import React from "react";
+import "../css/App.css"
 
 function promiseNoRender(promise, data, error) {
     console.log(data)
@@ -13,7 +14,7 @@ function promiseNoRender(promise, data, error) {
         return(<div></div>);
     } else if (data.error !== undefined){
         console.log("quota limit")
-        return("quota limit");
+        return(<div className="quotaLimit">quota limit, try again!</div>);
     }
     console.log("data exists")
     return false;

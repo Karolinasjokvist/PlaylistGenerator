@@ -19,7 +19,7 @@ function GenerateGenreView(props) {
                     <img src={genre.img} className="generateImgGenre"></img>
                     <div>{genre.name}</div>
                     <div className="slide">
-                        <input onChange={e => { e = value(genre.id, genre.name), props.setGenre(genre.radio, e) }} type="range" id={genre.id} min="0" max="100" step="20" defaultValue="0"></input>
+                        <input onChange={e => {e = value(genre.id,genre.name),props.setGenre(genre.radio,e,genre.name)}} type="range" id={genre.id} min="0" max="100" step="20" defaultValue="0"></input>
                         <div id={genre.name}>0</div><div className="percent">%</div>
                     </div>
                 </span>
