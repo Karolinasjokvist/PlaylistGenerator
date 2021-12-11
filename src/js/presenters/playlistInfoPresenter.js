@@ -13,9 +13,9 @@ function PlaylistInfoPresenter(props) {
     const [errorArtist, setErrorArtist] = React.useState(null);
 
     const [genres, setGenres] = React.useState(props.pmodel.genres);
-    const [artist, setArtist] = React.useState(null);
-    const [amount, setAmount] = React.useState(null);
-    const [explicit, setExplicit] = React.useState(null);
+    const [artist, setArtist] = React.useState(props.pmodel.artists);
+    const [amount, setAmount] = React.useState(props.pmodel.numberOfSongs);
+    const [explicit, setExplicit] = React.useState(props.pmodel.explicit);
 
     React.useEffect(() => {
         const obs = () => {
