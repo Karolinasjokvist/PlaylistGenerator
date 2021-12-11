@@ -17,9 +17,9 @@ function GenerateGenrePresenter(props) {
     return (
         <div>
             {<GenerateGenreView genres = {genres}
-                                setGenre={(genre,value) => props.pmodel.addGenre(genre,value)}/>}
+                                setGenre={(genre,value) => props.pmodel.addGenre(genre,value)}
+                                totalPercent={total}/>}
             {console.log(total)}
-            {<ButtonView totalPercent={total}/>}
             {console.log(props.pmodel.genres)}
         </div>
     );

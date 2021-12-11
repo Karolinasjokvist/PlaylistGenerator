@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import '../../css/generateArtists.css';
+import '../../css/button.css';
 
 function GenerateArtistsView(props) {
     return (
         <div className="generateArtists">
+            <button className="buttonNext" onClick={e => { window.location.hash = "#playlistInfo" }}>→</button>
+            <button className="buttonBack" onClick={e => { window.location.hash = "#generateGenre" }}>←</button>
             <div className="titelBox">
                 <div>Search for your favorite artists:</div>
                 <input type="search" className="searchBar" onChange={e => props.onText(e.target.value)}></input>
@@ -11,13 +14,6 @@ function GenerateArtistsView(props) {
             <div className="artistsBox">
                 <div>Added artists:</div>
             </div>
-        </div>
-    )
-}
-function ButtonView(){
-    return(
-        <div className="button">
-            <button className="buttonNext" onClick ={e => {window.location.hash = "#playlistInfo"}}>→</button>
         </div>
     )
 }
@@ -49,7 +45,7 @@ function AddedArtistsView(props) {
     )
 }
 
-function FullList(){
+function FullList() {
     return (
         <div>
             List is full!
@@ -58,4 +54,4 @@ function FullList(){
 
 }
 
-export { GenerateArtistsView, SearchResultsView, AddedArtistsView, FullList, ButtonView };
+export { GenerateArtistsView, SearchResultsView, AddedArtistsView, FullList };

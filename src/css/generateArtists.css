@@ -23,6 +23,8 @@
     font-size:x-large;
     color: grey;
     border: none;
+}
+
 /* 
 .search{
     height: 30px;
@@ -37,7 +39,6 @@
     bottom: 60px;
 }*/
 
-}
 .searchResults{
     background-color: grey;
     border-bottom-left-radius: 10px;
@@ -109,25 +110,3 @@
     bottom: 1px;
     right: 70px;
 }
-
-.buttonNext{
-    width: 5%;
-    height: 100%;
-    background-color: rgb(51, 50, 51);
-    margin-bottom: 0;
-    display: grid;
-    place-content: center;
-    text-align: center;
-    font-size: 200%;
-    cursor: pointer;
-    border-radius: 30px;
-    position: absolute;
-    transition-duration: 0.4s;
-    bottom: 50%;
-    right: 0;
-}
-
-.buttonNext:hover{
-    background-color: rgb(125, 94, 160);
-}
-

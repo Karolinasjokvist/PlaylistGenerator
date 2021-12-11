@@ -15,39 +15,7 @@ html{
     position: relative;
 }
 
-.buttonRightG{
-    width: 40%;
-    height: 50%;
-    background-color: rgb(51, 50, 51);
-    display: grid;
-    place-content: center;
-    text-align: center;
-    font-size: 200%;
-    cursor: pointer;
-    border-radius: 30px;
-    position: absolute;
-    margin-bottom: 30%;
-    left: 0;
-    transition-duration: 0.4s;
-}
-
-.buttonRightClickedG{
-    width: 40%;
-    height: 50%;
-    background-color: rgb(125, 94, 160);
-    display: grid;
-    place-content: center;
-    text-align: center;
-    font-size: 200%;
-    cursor: pointer;
-    border-radius: 30px;
-    position: absolute;
-    margin-bottom: 30%;
-    left: 0;
-    transition-duration: 0.4s;
-}
-
-.buttonLeftG{
+.button10{
     width: 40%;
     height: 50%;
     background-color: rgb(51, 50, 51);
@@ -63,7 +31,23 @@ html{
     transition-duration: 0.4s;
 }
 
-.midButtonG{
+.pressedButton10{
+    width: 40%;
+    height: 50%;
+    background-color: rgb(125, 94, 160);
+    display: grid;
+    place-content: center;
+    text-align: center;
+    font-size: 200%;
+    cursor: pointer;
+    border-radius: 30px;
+    position: absolute;
+    margin-bottom: 30%;
+    right: 0;
+    transition-duration: 0.4s;
+}
+
+.button20{
     width: 40%;
     height: 50%;
     background-color: rgb(51, 50, 51);
@@ -79,10 +63,10 @@ html{
     transition-duration: 0.4s;
 }
 
-.buttonNextG{
-    width: 4%;
-    height: 7%;
-    background-color: rgb(51, 50, 51);
+.pressedButton20{
+    width: 40%;
+    height: 50%;
+    background-color: rgb(125, 94, 160);
     margin-bottom: 0;
     display: grid;
     place-content: center;
@@ -91,16 +75,14 @@ html{
     cursor: pointer;
     border-radius: 30px;
     position: absolute;
+    margin-bottom: 30%;
     transition-duration: 0.4s;
-    margin-right: 7%;
-    right: 0;
 }
 
-.buttonBackG{
-    width: 4%;
-    height: 7%;
+.button30{
+    width: 40%;
+    height: 50%;
     background-color: rgb(51, 50, 51);
-    margin-bottom: 0;
     display: grid;
     place-content: center;
     text-align: center;
@@ -108,40 +90,36 @@ html{
     cursor: pointer;
     border-radius: 30px;
     position: absolute;
-    margin-left: 7%;
+    margin-bottom: 30%;
+    left: 0;
     transition-duration: 0.4s;
 }
 
-.buttonNextG:disabled{
-    background-color: rgb(116, 116, 116);
-    pointer-events: none;
+.pressedButton30{
+    width: 40%;
+    height: 50%;
+    background-color: rgb(125, 94, 160);
+    display: grid;
+    place-content: center;
+    text-align: center;
+    font-size: 200%;
+    cursor: pointer;
+    border-radius: 30px;
+    position: absolute;
+    margin-bottom: 30%;
+    left: 0;
+    transition-duration: 0.4s;
 }
 
-.buttonNextG:hover{
+.button10:hover{
     background-color: rgb(125, 94, 160);
 }
 
-.buttonRightG:hover{
+.button20:hover{
     background-color: rgb(125, 94, 160);
 }
 
-.buttonLeftG:hover{
-    background-color: rgb(125, 94, 160);
-}
-
-.midButtonG:hover{
-    background-color: rgb(125, 94, 160);
-}
-
-.buttonRightG:focus{
-    background-color: rgb(125, 94, 160);
-}
-
-.buttonLeftG:focus{
-    background-color: rgb(125, 94, 160);
-}
-
-.midButtonG:focus{
+.button30:hover{
     background-color: rgb(125, 94, 160);
 }
 

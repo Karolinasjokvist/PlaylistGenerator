@@ -4,7 +4,7 @@ import '../../css/myPlaylistsView.css';
 function MyPlaylistsView(props) {
     return (
         <div className="playlistMenu">
-            <div className="leftbox"><button className="leftarr" onClick ={e => {window.location.hash = "#start"}}>&#10229;</button></div>
+            <div className="leftbox"><button className="buttonBack" onClick={e => { window.location.hash = "#start" }}>←</button></div>
 
             <div className="middlebox">
                 <div className="toprow">

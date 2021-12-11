@@ -15,7 +15,6 @@ function PlaylistInfoPresenter(props) {
     return (
         <div>
             {<PlaylistInfoView genres = {props.pmodel.genres}
-                               artist = {props.pmodel.artist[0]}
                                amount = {props.pmodel.numberOfSongs}
                                explicit = {props.pmodel.explicit}
                 generateFromRadio={() => {

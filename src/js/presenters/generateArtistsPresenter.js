@@ -30,8 +30,6 @@ function GenerateArtistsPresenter(props) {
                         .catch((error) => setError(error))
                     );
                 }} />
-            <ButtonView />
-
 
             {PromiseNoRender(promise, data, error) ||
                 (<SearchResultsView searchResults={data.data}

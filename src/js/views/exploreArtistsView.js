@@ -4,6 +4,8 @@ import '../../css/explore.css';
 function ExploreArtistsView(props) {
     return (
         <div className="explorePage" >
+            <button className="buttonBack" onClick={e => { window.location.hash = "#exploreGenre" }}>←</button>
+
             <div className="title">Explore artists in the {props.genreName} genre!</div>
             {props.artist.slice(0, 15).map(artist =>
                 <span className="exploreView" key={artist.id} onClick={e => { props.func(artist.id) }} >

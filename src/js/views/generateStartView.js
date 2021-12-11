@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import '../../css/generateStartView.css';
+import '../../css/button.css';
 
 export function GenerateStartView(props) {
     return (
-        <div className>
+        <div>
             <div>
-                <button className="buttonNextG" disabled={console.log(props.currentNumberOfSongs), props.currentNumberOfSongs == 0} onClick={e => { window.location.hash = "generateGenre" }}>→</button>
-                <button className="buttonBackG" onClick={e => { window.location.hash = "#start" }}>←</button>
+                <button className="buttonNext" disabled={console.log(props.currentNumberOfSongs), props.currentNumberOfSongs == 0} onClick={e => { window.location.hash = "#generateGenre" }}>→</button>
+                <button className="buttonBack" onClick={e => { window.location.hash = "#start" }}>←</button>
                 <div className="titleTextG">
                     How many songs would you like in your playlist?
                 </div>
@@ -25,17 +26,17 @@ export function GenerateStartView(props) {
 
             <div className="menuG">
                 <div className="menuItemG">
-                    <button className="buttonLeftG" onClick={e => props.numberOfSongsChosen(10)}>
+                    <button className={props.currentNumberOfSongs == 10 ? "pressedButton10" : "button10"} onClick={e => props.numberOfSongsChosen(10)}>
                         <p>Short<br></br>10 songs</p>
                     </button>
                 </div>
                 <div className="menuItemG">
-                    <button className="midButtonG" onClick={e => props.numberOfSongsChosen(20)}>
+                    <button className={props.currentNumberOfSongs == 20 ? "pressedButton20" : "button20"} onClick={e => props.numberOfSongsChosen(20)}>
                         <p>Medium<br></br>20 songs</p>
                     </button>
                 </div>
                 <div className="menuItemG">
-                    <button className="buttonRightG" onClick={e => props.numberOfSongsChosen(30)}>
+                    <button className={props.currentNumberOfSongs == 30 ? "pressedButton30" : "button30"} onClick={e => props.numberOfSongsChosen(30)}>
                         <p>Long<br></br>30 songs</p>
                     </button>
                 </div>

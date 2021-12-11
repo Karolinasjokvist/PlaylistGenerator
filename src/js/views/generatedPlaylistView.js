@@ -1,5 +1,6 @@
 import React from 'react';
 import PlaylistInfoPresenter from '../presenters/playlistInfoPresenter';
+
 function GeneratedPlaylistView(props) {
     let array = [];
     return (
