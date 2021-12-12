@@ -20,7 +20,6 @@ function ExploreArtistsView(props) {
 
 
 function ExplorePlayMusic(props) {
-    console.log("hew")
     const audio = new Audio();
     return (
         <div className="stopMusic">
