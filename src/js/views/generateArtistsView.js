@@ -33,11 +33,10 @@ function SearchResultsView(props) {
 
 function AddedArtistsView(props) {
     return (
-        console.log("hej"),
         <div className="addedArtists">
             {props.artists.map(artist =>
                 <div className="listContent">
-                    <div className="deleteButton" onClick={e => props.removeArtist(artist.id)}>x</div>
+                    <div className="deleteButton" onClick={e => props.removeArtist()}>x</div>
                     <div className="name">{artist.name}</div>
                 </div>
             )}

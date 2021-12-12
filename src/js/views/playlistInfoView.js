@@ -24,7 +24,7 @@ function PlaylistInfoView(props) {
         </div>
     )
 }
-function seePlaylist(){
+function SeePlaylist(){
     return(
         <div onClick={e => window.location.hash = "#generatedPlaylist"}>See your playlist</div>
     )
@@ -32,4 +32,4 @@ function seePlaylist(){
 
 
 
-export default PlaylistInfoView;
+export {PlaylistInfoView,SeePlaylist};

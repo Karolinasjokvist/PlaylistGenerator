@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { SongSource } from '../songSource';
-import PlaylistInfoView from '../views/playlistInfoView';
+import {PlaylistInfoView,SeePlaylist} from '../views/playlistInfoView';
 import PromiseNoRender from '../promiseNoRender';
 
 function PlaylistInfoPresenter(props) {
@@ -83,7 +83,7 @@ function PlaylistInfoPresenter(props) {
             {
                 PromiseNoRender(promise, data, error) ||
                 PromiseNoRender(promiseArtist, dataArtist, errorArtist)||
-                <Seeplaylist />
+                <SeePlaylist />
             }
         </div>
     );

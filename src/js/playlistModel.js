@@ -9,7 +9,7 @@ class PlaylistModel {
         this.currentSong = null;
         this.songs = [];
         this.observers = [];
-        this.artists = [];
+        this.artist = null;
         this.total = 0;
     }
 
@@ -84,19 +84,12 @@ class PlaylistModel {
     }
 
     addArtist(artist){
-        if(this.artists.some(a => a.id === artist)){
-            return;
-        }
-    
-        this.artists = [...this.artists, artist];
+        this.artist = artist;
         this.notifyObservers();
     }
 
-    removeArtist(artist){
-        if(!(this.artists.some(a => a.id === artist))){
-            return;
-        }
-        this.artists = this.artists.filter((a) => a.id !== artist);
+    removeArtist(){
+        this.artist = null;
         this.notifyObservers();
     }
 
