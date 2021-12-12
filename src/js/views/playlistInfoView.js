@@ -11,7 +11,7 @@ function PlaylistInfoView(props) {
                         <div>-{genre.name}{genre.value * 100}%</div>
                     )}
                 </div>
-                <div className="info">Your Artist: {props.artist.name !== undefined ? props.artist.name : "none"}</div>
+                <div className="info">Your Artist: {props.artist !== undefined ? props.artist.name : "none"}</div>
                 <div className="info">Length: {props.amount}</div>
                 <div className="info">Explicit songs: {(props.explicit) ? "true" : "false"}</div>
             </div>

@@ -8,7 +8,7 @@ function GenerateArtistsView(props) {
             <button className="buttonNext" onClick={e => { window.location.hash = "#playlistInfo" }}>→</button>
             <button className="buttonBack" onClick={e => { window.location.hash = "#generateGenre" }}>←</button>
             <div className="titelBox">
-                <div>Search for your favorite artists:</div>
+                <div>Search for an artist you like:</div>
                 <input type="search" className="searchBar" onChange={e => props.onText(e.target.value)}></input>
             </div>
             <div className="artistsBox">
@@ -34,12 +34,11 @@ function SearchResultsView(props) {
 function AddedArtistsView(props) {
     return (
         <div className="addedArtists">
-            {props.artists.map(artist =>
-                <div className="listContent">
-                    <div className="deleteButton" onClick={e => props.removeArtist()}>x</div>
-                    <div className="name">{artist.name}</div>
-                </div>
-            )}
+            <div className="listContent">
+                <div className="deleteButton" onClick={e => props.removeArtist()}>x</div>
+                <div className="name">{props.artist.name}</div>
+            </div>
+            )
         </div>
     )
 }

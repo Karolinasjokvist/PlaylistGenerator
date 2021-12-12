@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from "react";
 
-function PromiseNoData(promise, data, error) {
+function promiseNoArtists(promise,data,error) {
     console.log(data)
     if (promise === null || promise === undefined) {
         console.log("promise")
@@ -9,8 +9,7 @@ function PromiseNoData(promise, data, error) {
         console.log("inne i data")
         return ( <img class="loadingSymbol" src="http://www.csc.kth.se/~cristi/loading.gif"/>)
     }else if(data.error !== undefined){
-        console.log("quota limit")
-        return(<div className="quotaLimit">quota limit, try again!</div>);
+        return (noData());
     } else if (error != null /* && error !== undefined */) {
         console.log("error")
         return (<span>{error}</span>)
@@ -18,4 +17,15 @@ function PromiseNoData(promise, data, error) {
     return false;
 }
 
-export default PromiseNoData;
+function noData() {
+    return (
+        <div className="noData">
+            Sorry, quota limit!
+            <div className="noDataItem">
+                <div className="retryButton" onClick={e => window.location.hash = "#exploreGenre"}>Retry</div>
+            </div>
+        </div >
+    )
+}
+
+export default promiseNoArtists;

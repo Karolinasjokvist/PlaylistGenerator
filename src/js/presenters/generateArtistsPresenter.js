@@ -37,7 +37,7 @@ function GenerateArtistsPresenter(props) {
                 />)}
 
             {PromiseNoRender("not null", dataArtists, error) || (
-                <AddedArtistsView artists={dataArtists}
+                <AddedArtistsView artist={dataArtists}
                     removeArtist={() => { props.pmodel.removeArtist() }} 
                 />)}
         </div>

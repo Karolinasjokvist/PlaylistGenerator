@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { SongSource } from '../songSource';
-import {PlaylistInfoView,SeePlaylist} from '../views/playlistInfoView';
+import { PlaylistInfoView, SeePlaylist } from '../views/playlistInfoView';
 import PromiseNoRender from '../promiseNoRender';
 
 function PlaylistInfoPresenter(props) {
@@ -35,42 +35,42 @@ function PlaylistInfoPresenter(props) {
 
     return (
         <div>
-            {<PlaylistInfoView genres = {genres}
-                               artist = {artist}
-                               amount = {amount}
-                               explicit = {explicit}
-                               amountOfSongs = {amountOfSongs}
+            {<PlaylistInfoView genres={genres}
+                artist={artist}
+                amount={amount}
+                explicit={explicit}
+                amountOfSongs={amountOfSongs}
                 generateFromRadio={() => {
-                props.pmodel.genres.map(genre => {
-                    let array = []
-                    setPromise(
-                        SongSource.getTracklistFromRadio(genre.id)
-                            .then((data) => {
-                                setData(data);
-                                console.log(data)
-                                if (data.error === undefined) {
-                                    array = pickSongs(data.data, genre.value, props.pmodel.numberOfSongs, props.pmodel.explicit);
-                                    copy = copy.concat(array);
-                                    if(copy[props.pmodel.numberOfSongs/2] !== undefined){
-                                        props.pmodel.addSongsToPlaylist(copy)
+                    props.pmodel.genres.map(genre => {
+                        let array = []
+                        setPromise(
+                            SongSource.getTracklistFromRadio(genre.id)
+                                .then((data) => {
+                                    setData(data);
+                                    console.log(data)
+                                    if (data.error === undefined) {
+                                        array = pickSongs(data.data, genre.value, props.pmodel.numberOfSongs, props.pmodel.explicit);
+                                        copy = copy.concat(array);
+                                        if (copy[props.pmodel.numberOfSongs / 2] !== undefined) {
+                                            props.pmodel.addSongsToPlaylist(copy)
+                                        }
                                     }
-                                }
-                            })
-                            .catch((error) => setError(error)),
-                    )
-                })
-            }}
+                                })
+                                .catch((error) => setError(error)),
+                        )
+                    })
+                }}
                 generateFromArtist={() => {
                     let array = []
                     setPromiseArtist(
-                        SongSource.getTracklistFromArtist(props.pmodel.artists[0].id)
+                        SongSource.getTracklistFromArtist(props.pmodel.artist.id)
                             .then((data) => {
                                 setDataArtist(data);
                                 console.log(data)
                                 if (data.error === undefined) {
                                     array = pickSongs(data.data, 1, props.pmodel.numberOfSongs, true);
                                     copy = copy.concat(array);
-                                    if(copy[props.pmodel.numberOfSongs/2] !== undefined){
+                                    if (copy[props.pmodel.numberOfSongs / 2] !== undefined) {
                                         props.pmodel.addSongsToPlaylist(copy)
                                     }
                                     (console.log(props.pmodel.songs))
@@ -82,7 +82,7 @@ function PlaylistInfoPresenter(props) {
             />}
             {
                 PromiseNoRender(promise, data, error) ||
-                PromiseNoRender(promiseArtist, dataArtist, errorArtist)||
+                PromiseNoRender(promiseArtist, dataArtist, errorArtist) ||
                 <SeePlaylist />
             }
         </div>
