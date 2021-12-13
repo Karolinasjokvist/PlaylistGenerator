@@ -5,7 +5,9 @@ function ExploreArtistsView(props) {
     return (
         <div className="explorePage" >
             <button className="buttonBack" onClick={e => { window.location.hash = "#exploreGenre" }}>←</button>
-
+            {/* {props.song !== undefined && ( 
+                // <div className="stopMusic" onClick={e => { console.log(props.song); console.log("stop music"); props.song.pause() }}>stop</div>
+            // )}*/}
             <div className="title">Explore artists in the {props.genreName} genre!</div>
             {props.artist.slice(0, 15).map(artist =>
                 <span className="exploreView" key={artist.id} onClick={e => { props.func(artist.id) }} >
@@ -17,25 +19,27 @@ function ExploreArtistsView(props) {
     );
 }
 
-
-
-function ExplorePlayMusic(props) {
-    const audio = new Audio();
+function StopMusic(props) {
     return (
         <div className="stopMusic">
-            {props.songs.slice(0, 1).map(song =>
-            {if(true){
-                audio.src = song.preview
-            }console.log(audio.src)}
+            {props.audio !== null && (
+                <div className="stop" >
+                    <div className="stopButton" onClick={e => {
+                        console.log("stop music");
+                        props.audio.pause();
+                        props.musicStopped()
+                    }}>
+                    </div>
+                    <div>{props.song.title}</div>
+                    <div>{props.song.artist.name}</div>
+                    <div className="nextButton" onClick={e => {
+                        props.nextSong();
+                    }}>
+                    </div>
+                </div>
             )}
-            {playMusic(audio)}
-            <div className="stopMusic" onClick={e => { console.log("stop music"); audio.pause() }}>stop</div>
         </div>
     )
 }
 
-function playMusic(audio){
-    audio.play()
-}
-
-export { ExploreArtistsView, ExplorePlayMusic };
+export { ExploreArtistsView, StopMusic };

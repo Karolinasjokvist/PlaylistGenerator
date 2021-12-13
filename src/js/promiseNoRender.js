@@ -2,7 +2,7 @@ import React from "react";
 import "../css/App.css"
 
 function promiseNoRender(promise, data, error) {
-    console.log(data)
+    console.log(error)
     if (promise === null || promise === undefined) {
         console.log("promise")
         return(<div></div>);
