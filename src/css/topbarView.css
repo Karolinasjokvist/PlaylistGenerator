@@ -37,6 +37,13 @@ html{
 	right: 0;
 }
 
+.disclaimer{
+	font-size: 100%;
+	position: absolute;
+	left: 10px;
+	color: #909196;
+}
+
 .topbuttons{
 	float: right;
 	display: inline;

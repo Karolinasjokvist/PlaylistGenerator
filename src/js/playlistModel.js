@@ -12,6 +12,7 @@ class PlaylistModel {
         this.total = 0;
         this.currentSong = null;
         this.currentAudio = null;
+        this.playlistDone = false;
     }
 
     addGenre(radioID, value, name) {
@@ -95,7 +96,13 @@ class PlaylistModel {
     }
 
     addSongsToPlaylist(arrayWithSongs) {
+        if(this.songs.length == this.numberOfSongs){
+            return;
+        }
         this.songs = this.songs.concat(arrayWithSongs);
+        if(this.songs.length == this.numberOfSongs){
+            this.playlistDone = true;
+        }
         this.notifyObservers();
     }
 

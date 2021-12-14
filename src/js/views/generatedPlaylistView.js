@@ -17,6 +17,7 @@ function GeneratedPlaylistView(props) {
                 <table className="playlisttable">
                     <tbody>
                         <tr>
+                            <td></td>
                             <td>Song</td>
                             <td>Artist</td>
                             <td>Album</td>
@@ -51,7 +52,7 @@ function addZero(number) {
 }
 
 function tooLong(string) {
-    return string.length > 20 ? string.slice(0, 30) + "..." : string;
+    return string.length > 20 ? string.slice(0, 40) + "..." : string;
 }
 
 

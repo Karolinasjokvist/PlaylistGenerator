@@ -1,21 +1,41 @@
 import React, { Component } from 'react';
+import "../css/App.css"
 
 function PromiseNoData(promise, data, error) {
     console.log(data)
     if (promise === null || promise === undefined) {
         console.log("promise")
-        return (<span>no data</span>)
-    } else if (data === undefined || data === null) {
-        console.log("inne i data")
+        return(<div></div>);
+    } else if (data === null || data === undefined) {
+        console.log("data")
         return ( <img class="loadingSymbol" src="http://www.csc.kth.se/~cristi/loading.gif"/>)
-    }else if(data.error !== undefined){
+    } else if (error !== null) {
+        console.log("error")
+        return(<div></div>);
+    } else if (data.error !== undefined){
         console.log("quota limit")
         return(<div className="quotaLimit">quota limit, try again!</div>);
-    } else if (error != null /* && error !== undefined */) {
-        console.log("error")
-        return (<span>{error}</span>)
     }
+    console.log("data exists")
     return false;
 }
 
-export default PromiseNoData;
+function PlaylistDone(promise, data, error){
+    if (promise === null || promise === undefined) {
+        console.log("promise")
+        return(<div></div>);
+    } else if (data === null || data === undefined) {
+        console.log("data")
+        return ( <div></div>)
+    } else if (error !== null) {
+        console.log("error")
+        return(<div></div>);
+    } else if (data.error !== undefined){
+        console.log("quota limit")
+        return(<div className="quotaLimitutton">quota limit, try again!</div>);
+    }
+    console.log("data exists")
+    return false;
+}
+
+export {PromiseNoData, PlaylistDone};

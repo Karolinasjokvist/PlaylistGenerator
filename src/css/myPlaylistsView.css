@@ -70,7 +70,7 @@
     color: white;
 }
 
-.playlisttable{
+table.playlisttable{
     margin-top: 5px;
     width: 100%;
     background-color: rgba(176,176,176, 0.8);
@@ -80,14 +80,14 @@
     padding-bottom: 10px;
 }
 
-td {
+table.playlisttable td {
     vertical-align: middle;
     color: black;
     font-weight: bold;
-    font-size: 1.5vmax;
+    font-size: 2vmax;
   }
 
-tr{
+table.playlisttable tr{
     border-bottom: 1pt solid black;
 }
 

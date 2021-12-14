@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { SongSource } from '../songSource';
 import { PlaylistInfoView, SeePlaylist } from '../views/playlistInfoView';
-import PromiseNoRender from '../promiseNoRender';
+import { PlaylistDone } from '../promiseNoData';
 
 function PlaylistInfoPresenter(props) {
     const [promise, setPromise] = React.useState(null);
@@ -13,21 +13,23 @@ function PlaylistInfoPresenter(props) {
     const [errorArtist, setErrorArtist] = React.useState(null);
 
     const [genres, setGenres] = React.useState(props.pmodel.genres);
-    const [artist, setArtist] = React.useState(props.pmodel.artists);
+    const [artist, setArtist] = React.useState(props.pmodel.artist);
     const [amount, setAmount] = React.useState(props.pmodel.numberOfSongs);
     const [explicit, setExplicit] = React.useState(props.pmodel.explicit);
     const [amountOfSongs, setAmountOfSongs] = React.useState(props.pmodel.songs.length);
+
+    const [generated, setGenerated] = React.useState(props.pmodel.playlistDone);
 
     let copy = [];
 
     React.useEffect(() => {
         const obs = () => {
             setGenres(props.pmodel.genres)
-            setArtist(props.pmodel.artists)
+            setArtist(props.pmodel.artist)
             setAmount(props.pmodel.numberOfSongs)
             setExplicit(props.pmodel.explicit)
             setAmountOfSongs(props.pmodel.songs.length)
-
+            setGenerated(props.pmodel.playlistDone)
         };
         props.pmodel.addObserver(obs);
         return () => props.pmodel.removeObserver(obs);
@@ -40,6 +42,9 @@ function PlaylistInfoPresenter(props) {
                 amount={amount}
                 explicit={explicit}
                 amountOfSongs={amountOfSongs}
+                // pressed={(pressed) => setGenerated(pressed)}
+                generated={generated}
+                // playlistDone={() => { return amount == amountOfSongs ? true : false }}
                 generateFromRadio={() => {
                     props.pmodel.genres.map(genre => {
                         let array = []
@@ -81,9 +86,9 @@ function PlaylistInfoPresenter(props) {
                 }}
             />}
             {
-                PromiseNoRender(promise, data, error) ||
-                PromiseNoRender(promiseArtist, dataArtist, errorArtist) ||
-                <SeePlaylist />
+                PlaylistDone(promise, data, error) ||
+                PlaylistDone(promiseArtist, dataArtist, errorArtist) ||
+                <div><SeePlaylist /></div>
             }
         </div>
     );

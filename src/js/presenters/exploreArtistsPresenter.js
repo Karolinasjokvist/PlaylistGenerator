@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { SongSource } from '../songSource';
-import PromiseNoData from '../promiseNoData';
-import promiseNoRender from '../promiseNoRender';
+import {PromiseNoData} from '../promiseNoData';
 import { ExploreArtistsView, StopMusic } from '../views/exploreArtistsView';
 import promiseNoArtists from '../promiseNoArtists';
 
@@ -53,7 +52,7 @@ function ExploreArtistsPresenter(props) {
                         )
                     }} />
             )}
-            {promiseNoRender(promiseSongs, dataSongs, errorSongs) || <StopMusic audio={audio}
+            {PromiseNoData(promiseSongs, dataSongs, errorSongs) || <StopMusic audio={audio}
                 song={dataSongs.data[dataIndex]}
                 nextSong={() => {
                     (dataIndex < 4) ? setDataIndex(dataIndex + 1) : setDataIndex(0);

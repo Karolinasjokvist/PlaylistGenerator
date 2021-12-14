@@ -4,17 +4,24 @@
     place-items: center;
     
 }
-.playlistInfo{
+table.playlistInfo{
     background-color: blueviolet;
     border-radius: 10px;
-    width: 30%;
+    width: 60%;
     height: 100%;
     position: relative;
-    left: 35%;
-    right: 35%;
+    left: 20%;
+    right: 20%;
     margin-top: 3%;
-    text-align: center;
+    font-size: 300%;
+    border: 10px;
+    border-color: brown;
+    border-collapse: collapse;
 }
+
+table.playlistInfo td, tr{
+    color: white;
+  }
 
 .info{
     font-size: 300%;
@@ -34,4 +41,16 @@
 
 .generateButton:hover{
     background-color: rgb(125, 94, 160);
+}
+
+.playlistButton{
+    background-color: rgb(51, 50, 51);
+    font-size: 350%;
+    border-radius: 5px;
+    width: 20%;
+    position: relative;
+    left: 40%;
+    right: 40%;
+    margin-top: 2%;
+    cursor: pointer;
 }

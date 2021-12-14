@@ -12,7 +12,7 @@ function GenerateArtistsView(props) {
                 <input type="search" className="searchBar" onChange={e => props.onText(e.target.value)}></input>
             </div>
             <div className="artistsBox">
-                <div>Added artists:</div>
+                <div>Added artist:</div>
             </div>
         </div>
     )
@@ -38,7 +38,6 @@ function AddedArtistsView(props) {
                 <div className="deleteButton" onClick={e => props.removeArtist()}>x</div>
                 <div className="name">{props.artist.name}</div>
             </div>
-            )
         </div>
     )
 }

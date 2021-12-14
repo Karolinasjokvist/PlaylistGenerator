@@ -5,31 +5,35 @@ function PlaylistInfoView(props) {
         <div className="playlistInfoDiv">
             <button className="buttonBack" onClick={e => { window.location.hash = "#generateArtists" }}>←</button>
 
-            <div className="playlistInfo">
-                <div className="info">Your Genres:
+            <table className="playlistInfo">
+                <tr>Your Genres:
                     {props.genres.map(genre =>
-                        <div>-{genre.name}{genre.value * 100}%</div>
+                        <td>-{genre.name}{genre.value * 100}%</td>
                     )}
-                </div>
-                <div className="info">Your Artist: {props.artist !== undefined ? props.artist.name : "none"}</div>
-                <div className="info">Length: {props.amount}</div>
-                <div className="info">Explicit songs: {(props.explicit) ? "true" : "false"}</div>
-            </div>
+                </tr>
+                <tr >Your Artist: <td>{props.artist !== null ? props.artist.name : "none"}</td>
+                </tr>
+                <tr >Length <td>{props.amount} songs</td>
+                </tr>
+                <tr >Explicit songs: <td>{props.explicit ? "true" : "false"}</td>
+                </tr>
+            </table>
             <button onClick={e => {
-                props.generateFromRadio(); props.generateFromArtist();
-                console.log(props.amountOfSongs)
-            }} className="generateButton" >
+                props.generateFromRadio();
+                props.generateFromArtist();
+            }} className={props.generated ? "hidden" : "generateButton"} >
                 Generate
             </button>
         </div>
     )
 }
-function SeePlaylist(){
-    return(
-        <div onClick={e => window.location.hash = "#generatedPlaylist"}>See your playlist</div>
+function SeePlaylist() {
+    return (
+        console.log("done"),
+        <button className="generateButton" onClick={e => window.location.hash = "#generatedPlaylist"}>See your playlist</button>
     )
 }
 
 
 
-export {PlaylistInfoView,SeePlaylist};
+export { PlaylistInfoView, SeePlaylist };
