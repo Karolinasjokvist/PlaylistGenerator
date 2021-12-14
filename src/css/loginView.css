@@ -123,3 +123,10 @@
     background-color: rgba(176,176,176, 0.8);
     cursor: pointer;
 }
+
+@media (max-width: 480px) {
+    
+    .starimg{
+        font-size: 10.9vmin;
+    }
+}
