@@ -7,7 +7,7 @@ function PlaylistView(props) {
             <div className="leftbox"></div>
 
             <div className="middlebox">
-                <div className="toprow">
+                <div className="topr">
                     <div className="titletext">&#128393; Playlist 1</div>
                     <div className="spacing"></div>
                     <div className="savecontainer"><button className="save">Save</button></div>
@@ -23,7 +23,7 @@ function PlaylistView(props) {
                         </tr>
                         
                         <tr>
-                            <td><button className="playButton">&#9658;</button>Song1</td>
+                            <td className="song"><button className="playButton">&#9658;</button>Song1</td>
                             <td>Artist1</td>
                             <td>Album1</td>
                             <td>3:00</td>
