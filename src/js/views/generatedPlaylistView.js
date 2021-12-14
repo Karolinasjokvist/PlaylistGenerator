@@ -26,21 +26,12 @@ function GeneratedPlaylistView(props) {
                             console.log(song)
                             return (
                                 <tr>
-                                    <td><div id="name" className="playButton" onClick={e => {
-
-                                        // if (song.id === props.currentSong) {
-                                           
-                                        //    props.removeAsCurrent();
-                                        // } else {
+                                    <td id="name" className="playButton" onClick={e => {
                                         props.playOrPause(song);
-                                        
-                                        
-                                        
-                                    }}>
-                                        {song === props.currentSong ? "◼" : "▶"}
-                                    </div>{song.title}</td>
-                                    <td>{song.artist.name}</td>
-                                    <td>{song.album.title}</td>
+                                    }}>{song === props.currentSong ? "◼" : "▶"}</td>
+                                    <td>{tooLong(song.title)}</td>
+                                    <td>{tooLong(song.artist.name)}</td>
+                                    <td>{tooLong(song.album.title)}</td>
                                     <td>{(song.duration / 60).toFixed(0)}:{addZero(song.duration % 60)}</td>
                                 </tr>
                             );
@@ -57,6 +48,10 @@ function GeneratedPlaylistView(props) {
 }
 function addZero(number) {
     return number < 10 ? "0" + number : number;
+}
+
+function tooLong(string) {
+    return string.length > 20 ? string.slice(0, 30) + "..." : string;
 }
 
 
