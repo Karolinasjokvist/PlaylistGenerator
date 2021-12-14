@@ -26,7 +26,22 @@ function GeneratedPlaylistView(props) {
                             console.log(song)
                             return (
                                 <tr>
-                                    <td><button className="playButton">&#9658;</button>{song.title}</td>
+                                    <td><div id="name" className="playButton" onClick={e => {
+
+                                        // if (song.id === props.currentSong) {
+                                           
+                                        //    props.removeAsCurrent();
+                                        // } else {
+                                        props.addAsCurrent(song.id);
+                                        let audio = props.getAudio(song)
+                                        audio.play();
+                                    
+                                        
+
+
+                                    }}>
+                                        {song.id === props.currentSong ? "◼" : "▶"}
+                                    </div>{song.title}</td>
                                     <td>{song.artist.name}</td>
                                     <td>{song.album.title}</td>
                                     <td>{(song.duration / 60).toFixed(0)}:{addZero(song.duration % 60)}</td>
@@ -46,6 +61,9 @@ function GeneratedPlaylistView(props) {
 function addZero(number) {
     return number < 10 ? "0" + number : number;
 }
+
+
 // &#128393; 
+// &#9658;
 
 export default GeneratedPlaylistView;

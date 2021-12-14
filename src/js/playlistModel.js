@@ -11,6 +11,7 @@ class PlaylistModel {
         this.observers = [];
         this.artist = null;
         this.total = 0;
+        this.currentSong = null;
     }
 
     addGenre(radioID, value, name){
@@ -103,6 +104,13 @@ class PlaylistModel {
         this.observers.forEach(cb => {
             try { cb() } catch (e) { console.log(e) }
         });
+    }
+    setcurrentSong(id){
+        if(this.currentSong = id){
+            return;
+        }
+        this.currentSong = id;
+        this.notifyObservers();
     }
 }
 

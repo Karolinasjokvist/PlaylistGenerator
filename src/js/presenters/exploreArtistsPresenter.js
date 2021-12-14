@@ -16,7 +16,7 @@ function ExploreArtistsPresenter(props) {
     const [errorSongs, setErrorSongs] = React.useState(null);
 
     const [audio, setAudio] = React.useState(null);
-    const [dataIndex, setDataIndex] = React.useState(null);
+    const [dataIndex, setDataIndex] = React.useState(0);
     let index = 0;
 
 
@@ -35,12 +35,11 @@ function ExploreArtistsPresenter(props) {
 
     return (
         <div>
-            {console.log(props.model.getGenreName(props.model.currentGenre))}
             {promiseNoArtists(promise, data, error) || (
                 <ExploreArtistsView artist={data.data}
                     genre={props.model.currentGenre}
                     genreName={props.model.getGenreName(props.model.currentGenre)}
-                    song={audio}
+                    audio={audio}
                     func={(id) => {
                         setPromiseSongs(
                             SongSource.getSongsFromArtist(id)
@@ -56,13 +55,21 @@ function ExploreArtistsPresenter(props) {
             )}
             {promiseNoRender(promiseSongs, dataSongs, errorSongs) || <StopMusic audio={audio}
                 song={dataSongs.data[dataIndex]}
-                nextSong={() => { (index < 5) ? index++ : index = 0; setDataIndex(index); playMusic(dataSongs.data, index)}}
-                musicStopped={() => setAudio(null), setDataIndex(0), index = 0} />}
+                nextSong={() => {
+                    (dataIndex < 4) ? setDataIndex(dataIndex + 1) : setDataIndex(0);
+                    setAudio(playMusic(dataSongs.data, dataIndex + 1))
+                }}
+                musicStopped={() => setAudio(null)}
+            />
+            }
         </div>
     );
 }
 
 function playMusic(songs, index) {
+    if (index == 5) {
+        index = 0;
+    }
     const audio = new Audio();
     audio.src = songs[index].preview
 
