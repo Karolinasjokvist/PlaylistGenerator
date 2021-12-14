@@ -32,15 +32,12 @@ function GeneratedPlaylistView(props) {
                                            
                                         //    props.removeAsCurrent();
                                         // } else {
-                                        props.addAsCurrent(song.id);
-                                        let audio = props.getAudio(song)
-                                        audio.play();
-                                    
+                                        props.playOrPause(song);
                                         
-
-
+                                        
+                                        
                                     }}>
-                                        {song.id === props.currentSong ? "◼" : "▶"}
+                                        {song === props.currentSong ? "◼" : "▶"}
                                     </div>{song.title}</td>
                                     <td>{song.artist.name}</td>
                                     <td>{song.album.title}</td>
