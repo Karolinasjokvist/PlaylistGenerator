@@ -6,16 +6,16 @@ function PlaylistInfoView(props) {
             <button className="buttonBack" onClick={e => { window.location.hash = "#generateArtists" }}>←</button>
 
             <table className="playlistInfo">
-                <tr>Your Genres:
-                    {props.genres.map(genre =>
-                        <td>-{genre.name}{genre.value * 100}%</td>
-                    )}
+                <tr><td>Your Genres:</td>{props.genres.map(genre => 
+                    
+                    <tr>{genre.value * 100}% {genre.name}</tr>
+                )}</tr>
+
+                <tr ><td>Your Artist:</td><td>{props.artist !== null ? props.artist.name : "none"}</td>
                 </tr>
-                <tr >Your Artist: <td>{props.artist !== null ? props.artist.name : "none"}</td>
+                <tr ><td>Length:</td><td>{props.amount} songs</td>
                 </tr>
-                <tr >Length <td>{props.amount} songs</td>
-                </tr>
-                <tr >Explicit songs: <td>{props.explicit ? "true" : "false"}</td>
+                <tr ><td>Explicit songs:</td><td>{props.explicit ? "true" : "false"}</td>
                 </tr>
             </table>
             <button onClick={e => {
@@ -27,10 +27,12 @@ function PlaylistInfoView(props) {
         </div>
     )
 }
-function SeePlaylist() {
+function SeePlaylist(props) {
     return (
-        console.log("done"),
-        <button className="generateButton" onClick={e => window.location.hash = "#generatedPlaylist"}>See your playlist</button>
+        <div>
+            <button className="generateButton" onClick={e => window.location.hash = "#generatedPlaylist"}>See your playlist</button>
+            {(props.chosenAmount == props.actualAmount) || <div className="shortList">The list will be shorter than expected because of limited number of non-explicit songs</div>}
+        </div>
     )
 }
 

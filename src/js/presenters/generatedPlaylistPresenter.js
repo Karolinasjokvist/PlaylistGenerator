@@ -21,10 +21,10 @@ function GeneratedPlaylistPresenter(props) {
 
     return (
         <div>
-            {<GeneratedPlaylistView songs={songs}
+            {<GeneratedPlaylistView songs={songs.filter(x => x !== undefined)}
                 playlistName={name}
                 setPlaylistName={(name) => { console.log(name), props.pmodel.setPlaylistName(name) }}
-                playOrPause={(song) => {props.pmodel.setCurrentSong(song)}}
+                playOrPause={(song) => { props.pmodel.setCurrentSong(song) }}
                 currentSong={currentSong}
                 save={() => props.savePlaylist(props.pmodel.playlistName)}
             />}
@@ -33,8 +33,8 @@ function GeneratedPlaylistPresenter(props) {
     );
 }
 
-function getDate(){
-    
+function getDate() {
+
 }
 
 export default GeneratedPlaylistPresenter;

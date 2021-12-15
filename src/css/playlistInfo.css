@@ -5,22 +5,23 @@
     
 }
 table.playlistInfo{
-    background-color: blueviolet;
+    background-color: rgb(125, 94, 160);
     border-radius: 10px;
-    width: 60%;
+    width: 40%;
     height: 100%;
     position: relative;
-    left: 20%;
-    right: 20%;
+    left: 30%;
+    right: 30%;
     margin-top: 3%;
     font-size: 300%;
-    border: 10px;
-    border-color: brown;
-    border-collapse: collapse;
+    
 }
 
 table.playlistInfo td, tr{
     color: white;
+    vertical-align: top;
+    border-bottom: 5px;
+    border-color: black;
   }
 
 .info{
@@ -53,4 +54,11 @@ table.playlistInfo td, tr{
     right: 40%;
     margin-top: 2%;
     cursor: pointer;
+}
+.shortList{
+    margin: auto;
+    margin-top: 5%;
+    width: 50%;
+    text-align: center;
+    font-size: 200%
 }
