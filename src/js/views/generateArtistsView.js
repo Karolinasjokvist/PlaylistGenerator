@@ -5,7 +5,7 @@ import '../../css/button.css';
 function GenerateArtistsView(props) {
     return (
         <div className="generateArtists">
-            <button className="buttonNext" onClick={e => { window.location.hash = "#playlistInfo" }}>→</button>
+            <button className="buttonNext" disabled={props.artist === null} onClick={e => { window.location.hash = "#playlistInfo" }}>→</button>
             <button className="buttonBack" onClick={e => { window.location.hash = "#generateGenre" }}>←</button>
             <div className="titelBox">
                 <div>Search for an artist you like:</div>

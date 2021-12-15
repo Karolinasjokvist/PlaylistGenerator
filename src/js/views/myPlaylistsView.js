@@ -10,7 +10,6 @@ function MyPlaylistsView(props) {
                 <div className="toprow">
                     <div className="titletext">My playlists</div>
                     <div className="spacing"></div>
-                    <div className="savecontainer"><button className="save">Save</button></div>
                 </div>
 
                 <table className="playlisttable">

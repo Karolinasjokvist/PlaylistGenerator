@@ -42,9 +42,7 @@ function PlaylistInfoPresenter(props) {
                 amount={amount}
                 explicit={explicit}
                 amountOfSongs={amountOfSongs}
-                // pressed={(pressed) => setGenerated(pressed)}
                 generated={generated}
-                // playlistDone={() => { return amount == amountOfSongs ? true : false }}
                 generateFromRadio={() => {
                     props.pmodel.genres.map(genre => {
                         let array = []

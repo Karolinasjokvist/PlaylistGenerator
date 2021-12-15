@@ -1,9 +1,9 @@
 class Model {
     constructor() {
-        this.currentGenre = "152";
+        this.currentGenre = null;
         this.observers = [];
-        this.artists = [];
         this.currentPlaylist = "1";
+        this.playlists = [];
         this.genreList = [
         {
             id: "132",
@@ -81,18 +81,8 @@ class Model {
         return this.genreList.find(x => x.id === id).name;
     }
 
-    addToList(artist){
-        
-        this.artists = [...this.artists, artist];
-        this.notifyObservers();
-    }
+    savePlaylist(name){
 
-    removeFromList(artistData){
-        if(!(this.artists.some(a => a.id === artistData))){
-            return;
-        }
-        this.artists = this.artists.filter((artist) => artist.id !== artistData);
-        this.notifyObservers();
     }
 
     addObserver(callback) {
