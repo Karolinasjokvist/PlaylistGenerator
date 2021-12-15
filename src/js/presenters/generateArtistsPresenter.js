@@ -23,6 +23,7 @@ function GenerateArtistsPresenter(props) {
     return (
         <div>
             <GenerateArtistsView
+                artist={dataArtists}
                 onText={(search) => {
                     setData(null);
                     setError(null);

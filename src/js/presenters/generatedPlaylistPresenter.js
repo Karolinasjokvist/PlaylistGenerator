@@ -26,10 +26,15 @@ function GeneratedPlaylistPresenter(props) {
                 setPlaylistName={(name) => { console.log(name), props.pmodel.setPlaylistName(name) }}
                 playOrPause={(song) => {props.pmodel.setCurrentSong(song)}}
                 currentSong={currentSong}
+                save={() => props.savePlaylist(props.pmodel.playlistName)}
             />}
 
         </div>
     );
+}
+
+function getDate(){
+    
 }
 
 export default GeneratedPlaylistPresenter;

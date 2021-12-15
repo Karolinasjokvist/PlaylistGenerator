@@ -6,7 +6,7 @@ export function GenerateStartView(props) {
     return (
         <div>
             <div>
-                <button className="buttonNext" disabled={console.log(props.currentNumberOfSongs), props.currentNumberOfSongs == 0} onClick={e => { window.location.hash = "#generateGenre" }}>→</button>
+                <button className="buttonNext" disabled={ props.currentNumberOfSongs == 0} onClick={e => { window.location.hash = "#generateGenre" }}>→</button>
                 <button className="buttonBack" onClick={e => { window.location.hash = "#start" }}>←</button>
                 <div className="titleTextG">
                     How many songs would you like in your playlist?

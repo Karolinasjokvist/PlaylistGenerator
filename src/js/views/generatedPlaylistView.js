@@ -10,8 +10,7 @@ function GeneratedPlaylistView(props) {
             <div className="middlebox">
                 <div className="toprow">
                     <input type="text" className="titleText" placeholder="Edit Playlistname" onChange={e => props.setPlaylistName(e.target.value)} ></input>
-                    {/* <div className="spacing"></div> */}
-                    <div className="savecontainer"><button className="save">Save</button></div>
+                    <div className="savecontainer"><button className="save" onClick={e => props.save(), props.setDate()}>Save</button></div>
                 </div>
 
                 <table className="playlisttable">
