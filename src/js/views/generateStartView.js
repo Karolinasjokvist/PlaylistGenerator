@@ -5,7 +5,7 @@ import '../../css/button.css';
 export function GenerateStartView(props) {
     return (
         <div>
-            <div>
+            <div className="random">
                 <button className="buttonNext" disabled={console.log(props.currentNumberOfSongs), props.currentNumberOfSongs == 0} onClick={e => { window.location.hash = "#generateGenre" }}>→</button>
                 <button className="buttonBack" onClick={e => { window.location.hash = "#start" }}>←</button>
                 <div className="titleTextG">
