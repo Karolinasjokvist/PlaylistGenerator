@@ -98,3 +98,39 @@
     margin: auto;
     margin-top: 15%;
 }
+
+@media (max-width: 480px) {
+    .explorePage{
+        width: 90%;
+        margin-left: 5%;
+        height: auto;
+        display: block;
+        padding: 1px;
+    }
+
+    .explorePage .title{
+        margin-top: 60px;
+    }
+
+    .explorePage .exploreView{
+        display: inline-block;
+        height: 45%;
+        width: 45%;
+        margin-left: 2%;
+        text-align: center;
+        font-size: 200%;
+        margin-top: 5px;
+    }
+
+    .explorePage .exploreImgGenre{
+        height: 40vmin;
+        width: 40vmin;
+    }
+
+    .explorePage .buttonBack{
+        width: 80%;
+        height: 50px;
+        font-size: 15vmin;
+    }
+
+}
