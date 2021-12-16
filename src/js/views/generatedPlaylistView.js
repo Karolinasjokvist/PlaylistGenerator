@@ -23,7 +23,6 @@ function GeneratedPlaylistView(props) {
                             <td>Length</td>
                         </tr>
                         {props.songs.map(song => {
-                            console.log(song)
                             return (
                                 <tr>
                                     <td id="name" className="playButton" onClick={e => {

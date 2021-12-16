@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import GenerateStartView from '../views/generateStartView';
 
 function GenerateStartPresenter(props) {
-    const [currentNum, setCurrentNum] = React.useState(props.pmodel.numberOfSongs);
+    const [currentNum, setCurrentNum] = React.useState(props.pmodel.chosenNumberOfSongs);
     const [currentExplicit, setCurrentExplicit] = React.useState(props.pmodel.explicit);
 
     React.useEffect(() => {
         const obs = () => {
-            setCurrentNum(props.pmodel.numberOfSongs)
+            setCurrentNum(props.pmodel.chosenNumberOfSongs)
             setCurrentExplicit(props.pmodel.explicit)
         };
         props.pmodel.addObserver(obs);
@@ -16,7 +16,7 @@ function GenerateStartPresenter(props) {
 
     return (
         <div>
-            {<GenerateStartView numberOfSongsChosen={(length) => props.pmodel.currentNumberOfSongs(length)}
+            {<GenerateStartView numberOfSongsChosen={(length) => props.pmodel.setNumberOfSongs(length)}
                 explicitChosen={(choice) => props.pmodel.setExplicit(choice)}
                 explicit={currentExplicit}
                 currentNumberOfSongs={currentNum}/>}

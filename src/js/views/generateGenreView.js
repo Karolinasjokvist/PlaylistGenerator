@@ -4,8 +4,8 @@ import '../../css/button.css';
 
 function GenerateGenreView(props) {
     return (
-        <div>
-            <div>
+        <div className="main">
+            <div className="content">
                 <button className="buttonNext" disabled={!(props.totalPercent == 1)} onClick={e => { window.location.hash = "#generateArtists" }}>→</button>
                 <button className="buttonBack" onClick={e => { window.location.hash = "#generateStart" }}>←</button>
                 <div className="genreTitle">

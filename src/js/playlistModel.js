@@ -2,7 +2,8 @@ class PlaylistModel {
     constructor() {
         this.playlistID = "1";
         this.playlistName = "Edit Name";
-        this.numberOfSongs = 0;
+        this.chosenNumberOfSongs = 0;
+        this.actualNumberOfSongs = 0;
         this.explicit = false;
         this.genres = [];
         this.currentSong = null;
@@ -54,9 +55,18 @@ class PlaylistModel {
         this.notifyObservers();
     }
 
-    currentNumberOfSongs(length) {
-        this.numberOfSongs = length;
-        console.log(this.numberOfSongs)
+    setNumberOfSongs(length) {
+        this.chosenNumberOfSongs = length;
+        console.log(this.chosenNumberOfSongs)
+        this.notifyObservers();
+    }
+
+    setActualNumberOfSongs(length){
+        this.actualNumberOfSongs += length;
+        if(this.actualNumberOfSongs >= this.chosenNumberOfSongs){
+            return;
+        }
+        console.log(this.actualNumberOfSongs)
         this.notifyObservers();
     }
 
@@ -77,6 +87,9 @@ class PlaylistModel {
             this.removeCurrentAudio();
             return;
         }
+        if(this.currentAudio !== null){
+            this.removeCurrentAudio();
+        }
         this.currentSong = song;
         this.setCurrentAudio(song);
         this.notifyObservers();
@@ -96,13 +109,14 @@ class PlaylistModel {
     }
 
     addSongsToPlaylist(arrayWithSongs) {
-        if(this.songs.length == this.numberOfSongs){
+        console.log(this.chosenNumberOfSongs)
+        if(this.songs.length >= this.chosenNumberOfSongs){
             return;
         }
         this.songs = this.songs.concat(arrayWithSongs);
-        if(this.songs.length == this.numberOfSongs){
-            this.playlistDone = true;
-        }
+        console.log(this.actualNumberOfSongs)
+        this.playlistDone = true;
+        
         this.notifyObservers();
     }
 
