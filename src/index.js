@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './css/index.css';
 import App from './App.js';
 import Model from './js/model';
-import  PlaylistModel  from './js/playlistModel';
+import PlaylistModel from './js/playlistModel';
 
 
 const model=new Model();

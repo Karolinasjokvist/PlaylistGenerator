@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import  StartView  from '../views/startView';
 
 
@@ -6,7 +6,7 @@ function StartPresenter(props) {
 
     return (
         <div>
-            <StartView />
+            <StartView pmodel={props.pmodel}/>
         </div>
     );
 }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { SongSource } from '../songSource';
 import { PlaylistInfoView, SeePlaylist } from '../views/playlistInfoView';
 import { PlaylistDone } from '../promiseNoData';
@@ -61,7 +61,7 @@ function PlaylistInfoPresenter(props) {
                                             copy.splice(0,0,array[i]);
                                         }
                                         if (copy[props.pmodel.chosenNumberOfSongs/2] !== undefined) {
-                                            props.pmodel.addSongsToPlaylist(copy)
+                                            props.pmodel.addSongsToPlaylist(copy.filter(x => x !== undefined))
                                         }
                                     }
                                 })
@@ -82,7 +82,7 @@ function PlaylistInfoPresenter(props) {
                                         copy.splice(props.pmodel.chosenNumberOfSongs/2,0,array[i]);
                                     }
                                     if (copy[props.pmodel.chosenNumberOfSongs/2] !== undefined) {
-                                        props.pmodel.addSongsToPlaylist(copy)
+                                        props.pmodel.addSongsToPlaylist(copy.filter(x => x !== undefined))
                                     }
                                 };
                             })

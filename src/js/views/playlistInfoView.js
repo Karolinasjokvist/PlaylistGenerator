@@ -33,7 +33,7 @@ function SeePlaylist(props) {
     return (
         <div className="after">
             <button className="generateButton" onClick={e => window.location.hash = "#generatedPlaylist"}>See your playlist</button>
-            {(props.amount == props.amountOfSongs) || <div className="shortList">The list will be shorter than expected because of limited number of non-explicit songs</div>}
+            {(props.amount === props.amountOfSongs) || <div className="shortList">The list will be shorter than expected because of limited number of non-explicit songs</div>}
         </div>
     )
 }

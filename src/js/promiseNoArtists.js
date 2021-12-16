@@ -7,7 +7,7 @@ function promiseNoArtists(promise,data,error) {
         return (<span>no data</span>)
     } else if (data === undefined || data === null) {
         console.log("inne i data")
-        return ( <img class="loadingSymbol" src="http://www.csc.kth.se/~cristi/loading.gif"/>)
+        return ( <img alt="loading" class="loadingSymbol" src="http://www.csc.kth.se/~cristi/loading.gif"/>)
     }else if(data.error !== undefined){
         return (noData());
     } else if (error != null /* && error !== undefined */) {

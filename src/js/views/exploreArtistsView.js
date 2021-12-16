@@ -8,13 +8,13 @@ function ExploreArtistsView(props) {
                 if (props.audio !== null) props.audio.pause();
                 window.location.hash = "#exploreGenre"
             }}>←</button>
-            <div className="title">Explore artists in the {props.genreName} genre!</div>
+            <div className="title">Explore artists in the  genre!</div>
             {props.artist.map(artist =>
                 <span className="exploreView" key={artist.id} onClick={e => {
                     if (props.audio !== null) props.audio.pause();
                     props.func(artist.id)
                 }} >
-                    <img src={artist.picture_xl} className="exploreImgArtist"></img>
+                    <img alt={artist.name} src={artist.picture_xl} className="exploreImgArtist"></img>
                     <div>{artist.name}</div>
                 </span>
             )}

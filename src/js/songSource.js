@@ -8,7 +8,7 @@ export const SongSource = {   // JS object creation literal
                     'x-rapidapi-host': 'deezerdevs-deezer.p.rapidapi.com',
                     'x-rapidapi-key': API_KEY
                 }
-            }).then(response => { if (response.status != 200) throw "error " + response.status; return response })
+            }).then(response => { if (response.status !== 200) throw "error " + response.status; return response })
 
                 // from HTTP response headers to HTTP response data
                 .then(response => response.json());
