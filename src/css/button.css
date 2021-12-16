@@ -41,3 +41,29 @@
 .buttonBack:hover{
     background-color: rgb(125, 94, 160);
 }
+
+.generateAButton{
+    background-color: rgb(51, 50, 51);
+    font-size: 50%;
+    border-radius: 5px;
+    width: 20%;
+    left: 40%;
+    right: 40%;
+    margin-top: 2%;
+    cursor: pointer;
+}
+
+.generateAButton:disabled{
+    background-color: rgb(116, 116, 116);
+    font-size: 50%;
+    border-radius: 5px;
+    width: 20%;
+    left: 40%;
+    right: 40%;
+    margin-top: 2%;
+    pointer-events: none;
+}
+
+.hiddenButton{
+    display: none;
+}

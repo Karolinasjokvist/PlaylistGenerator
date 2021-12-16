@@ -1,9 +1,9 @@
 class PlaylistModel {
-    constructor() 
-    {
-        this.playlistID ="1";
+    constructor() {
+        this.playlistID = "1";
         this.playlistName = "Edit Name";
-        this.numberOfSongs = 0;
+        this.chosenNumberOfSongs = 0;
+        this.actualNumberOfSongs = 0;
         this.explicit = false;
         this.genres = [];
         this.currentSong = null;
@@ -11,24 +11,27 @@ class PlaylistModel {
         this.observers = [];
         this.artist = null;
         this.total = 0;
+        this.currentSong = null;
+        this.currentAudio = null;
+        this.playlistDone = false;
     }
 
-    addGenre(radioID, value, name){
+    addGenre(radioID, value, name) {
 
-        if(value == 0){
+        if (value == 0) {
             console.log("remove")
             this.removeGenre(radioID);
             this.setTotalPercent();
             return;
         }
-        if(this.genres.some(g => g.id === radioID)){
-            this.genres.find(g => g.id === radioID).value = (value/100);
+        if (this.genres.some(g => g.id === radioID)) {
+            this.genres.find(g => g.id === radioID).value = (value / 100);
             this.setTotalPercent();
             return;
         }
-                
-        this.genres = [...this.genres, {id:radioID}];
-        this.genres.find(x => x.id === radioID).value = (value/100);
+
+        this.genres = [...this.genres, { id: radioID }];
+        this.genres.find(x => x.id === radioID).value = (value / 100);
         this.genres.find(x => x.id === radioID).name = name;
         console.log(this.genres);
         this.setTotalPercent();
@@ -38,12 +41,12 @@ class PlaylistModel {
         this.notifyObservers();
     }
 
-    removeGenre(radioID){
+    removeGenre(radioID) {
         this.genres = this.genres.filter((genre) => genre.id !== radioID);
         this.notifyObservers();
     }
 
-    setTotalPercent(){
+    setTotalPercent() {
         let total = 0;
         this.genres.forEach(genre => {
             total += genre.value;
@@ -52,43 +55,77 @@ class PlaylistModel {
         this.notifyObservers();
     }
 
-    currentNumberOfSongs(length){
-        this.numberOfSongs = length;
-        console.log(this.numberOfSongs)
+    setNumberOfSongs(length) {
+        this.chosenNumberOfSongs = length;
+        console.log(this.chosenNumberOfSongs)
         this.notifyObservers();
     }
 
-    setExplicit(choice){
+    setActualNumberOfSongs(length){
+        this.actualNumberOfSongs += length;
+        if(this.actualNumberOfSongs >= this.chosenNumberOfSongs){
+            return;
+        }
+        console.log(this.actualNumberOfSongs)
+        this.notifyObservers();
+    }
+
+    setExplicit(choice) {
         console.log(choice)
         this.explicit = choice;
         console.log(this.explicit);
         this.notifyObservers();
     }
 
-    setPlaylistName(name){
+    setPlaylistName(name) {
         this.playlistName = name;
         this.notifyObservers();
     }
 
-    setCurrentSong(song){
-        if(this.currentSong === song){
+    setCurrentSong(song) {
+        if (this.currentSong === song) {
+            this.removeCurrentAudio();
             return;
         }
+        if(this.currentAudio !== null){
+            this.removeCurrentAudio();
+        }
         this.currentSong = song;
+        this.setCurrentAudio(song);
         this.notifyObservers();
     }
 
-    addSongsToPlaylist(arrayWithSongs){
-       this.songs = this.songs.concat(arrayWithSongs);
-       this.notifyObservers();
+    setCurrentAudio(song) {
+        this.currentAudio = new Audio();
+        this.currentAudio.src = song.preview;
+        this.currentAudio.play();
+        this.notifyObservers();
     }
 
-    addArtist(artist){
+    removeCurrentAudio() {
+        this.currentAudio.pause();
+        this.currentSong = null;
+        this.notifyObservers();
+    }
+
+    addSongsToPlaylist(arrayWithSongs) {
+        console.log(this.chosenNumberOfSongs)
+        if(this.songs.length >= this.chosenNumberOfSongs){
+            return;
+        }
+        this.songs = this.songs.concat(arrayWithSongs);
+        console.log(this.actualNumberOfSongs)
+        this.playlistDone = true;
+        
+        this.notifyObservers();
+    }
+
+    addArtist(artist) {
         this.artist = artist;
         this.notifyObservers();
     }
 
-    removeArtist(){
+    removeArtist() {
         this.artist = null;
         this.notifyObservers();
     }
@@ -103,6 +140,13 @@ class PlaylistModel {
         this.observers.forEach(cb => {
             try { cb() } catch (e) { console.log(e) }
         });
+    }
+    setcurrentSong(id) {
+        if (this.currentSong = id) {
+            return;
+        }
+        this.currentSong = id;
+        this.notifyObservers();
     }
 }
 

@@ -1,10 +1,10 @@
 
 class Model {
     constructor() {
-        this.currentGenre = "152";
+        this.currentGenre = null;
         this.observers = [];
-        this.artists = [];
         this.currentPlaylist = "1";
+        this.playlists = [];
         this.genreList = [
         {
             id: "132",
@@ -48,13 +48,13 @@ class Model {
             id: "129",
             name: "Jazz",
             img: "https://images.freeimages.com/images/large-previews/946/sax-player-1254283.jpg",
-            radio: "Jazz"
+            radio: "31031"
         },
         {
             id: "464",
             name: "Metal",
             img: "https://images.freeimages.com/images/large-previews/42d/angel-drummer-1559333.jpg",
-            radio: "Metal"
+            radio: "30901"
         },
         {
             id: "169",
@@ -82,17 +82,8 @@ class Model {
         return this.genreList.find(x => x.id === id).name;
     }
 
-    addToList(artist){
-        
-        this.artists = [...this.artists, artist];
-        this.notifyObservers();
-    }
-
-    removeFromList(artistData){
-        if(!(this.artists.some(a => a.id === artistData))){
-            return;
-        }
-        this.artists = this.artists.filter((artist) => artist.id !== artistData);
+    savePlaylist(playlist){
+        this.playlists = [... this.playlists, playlist];
         this.notifyObservers();
     }
 

@@ -4,10 +4,11 @@ import '../../css/topbarView.css';
 function TopbarView() {
     return (
         <div className="topBar">
+            <div className="disclaimer">Disclaimer: the api is limited to 50 calls per 5 seconds</div>
             <div className="top">
                 <div className="topbuttons">
-                    <button className="b1" onClick={e => { window.location.hash = "#register" }}>Register</button>
-                    <button className="b1" onClick={e => { window.location.hash = "#login" }}>Log in</button>
+                    <button className="b1 register" onClick={e => { window.location.hash = "#register" }}>Register</button>
+                    <button className="b1 login" onClick={e => { window.location.hash = "#login" }}>Log in</button>
                 </div>
             </div>
             <div className="head">PlaylistGenerator</div>

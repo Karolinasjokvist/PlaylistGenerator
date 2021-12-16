@@ -4,11 +4,16 @@ import '../../css/explore.css';
 function ExploreArtistsView(props) {
     return (
         <div className="explorePage" >
-            <button className="buttonBack" onClick={e => { window.location.hash = "#exploreGenre" }}>←</button>
-
+            <button className="buttonBack" onClick={e => {
+                if (props.audio !== null) props.audio.pause();
+                window.location.hash = "#exploreGenre"
+            }}>←</button>
             <div className="title">Explore artists in the {props.genreName} genre!</div>
-            {props.artist.slice(0, 15).map(artist =>
-                <span className="exploreView" key={artist.id} onClick={e => { props.func(artist.id) }} >
+            {props.artist.map(artist =>
+                <span className="exploreView" key={artist.id} onClick={e => {
+                    if (props.audio !== null) props.audio.pause();
+                    props.func(artist.id)
+                }} >
                     <img src={artist.picture_xl} className="exploreImgArtist"></img>
                     <div>{artist.name}</div>
                 </span>
@@ -17,25 +22,28 @@ function ExploreArtistsView(props) {
     );
 }
 
-
-
-function ExplorePlayMusic(props) {
-    const audio = new Audio();
+function StopMusic(props) {
     return (
         <div className="stopMusic">
-            {props.songs.slice(0, 1).map(song =>
-            {if(true){
-                audio.src = song.preview
-            }console.log(audio.src)}
+            {props.audio !== null && (
+                <div className="musicBar" >
+                    <div className="stopButton" onClick={e => {
+                        console.log("stop music");
+                        props.audio.pause();
+                        props.musicStopped()
+                    }}><p className="stop">STOP</p>
+                    </div>
+                    <div>{props.song.title}</div>
+                    <div>{props.song.artist.name}</div>
+                    <div className="nextButton" onClick={e => {
+                        props.audio.pause();
+                        props.nextSong();
+                    }}><p className="next">NEXT</p>
+                    </div>
+                </div>
             )}
-            {playMusic(audio)}
-            <div className="stopMusic" onClick={e => { console.log("stop music"); audio.pause() }}>stop</div>
         </div>
     )
 }
 
-function playMusic(audio){
-    audio.play()
-}
-
-export { ExploreArtistsView, ExplorePlayMusic };
+export { ExploreArtistsView, StopMusic };

@@ -1,35 +1,43 @@
 import React from 'react';
 import "../../css/playlistInfo.css";
+import '../../css/button.css';
+
 function PlaylistInfoView(props) {
     return (
         <div className="playlistInfoDiv">
             <button className="buttonBack" onClick={e => { window.location.hash = "#generateArtists" }}>←</button>
 
-            <div className="playlistInfo">
-                <div className="info">Your Genres:
-                    {props.genres.map(genre =>
-                        <div>-{genre.name}{genre.value * 100}%</div>
-                    )}
-                </div>
-                <div className="info">Your Artist: {props.artist !== undefined ? props.artist.name : "none"}</div>
-                <div className="info">Length: {props.amount}</div>
-                <div className="info">Explicit songs: {(props.explicit) ? "true" : "false"}</div>
-            </div>
+            <table className="playlistInfo">
+                <tr><td>Your Genres:</td>{props.genres.map(genre => 
+                    
+                    <tr>{genre.value * 100}% {genre.name}</tr>
+                )}</tr>
+
+                <tr ><td>Your Artist:</td><td>{props.artist !== null ? props.artist.name : "none"}</td>
+                </tr>
+                <tr ><td>Length:</td><td>{props.amount} songs</td>
+                </tr>
+                <tr ><td>Explicit songs:</td><td>{props.explicit ? "true" : "false"}</td>
+                </tr>
+            </table>
             <button onClick={e => {
-                props.generateFromRadio(); props.generateFromArtist();
-                console.log(props.amountOfSongs)
-            }} className="generateButton" >
+                props.generateFromRadio();
+                props.generateFromArtist();
+            }} className={props.generated ? "hidden" : "generateButton"} >
                 Generate
             </button>
         </div>
     )
 }
-function SeePlaylist(){
-    return(
-        <div onClick={e => window.location.hash = "#generatedPlaylist"}>See your playlist</div>
+function SeePlaylist(props) {
+    return (
+        <div className="after">
+            <button className="generateButton" onClick={e => window.location.hash = "#generatedPlaylist"}>See your playlist</button>
+            {(props.chosenAmount == props.actualAmount) || <div className="shortList">The list will be shorter than expected because of limited number of non-explicit songs</div>}
+        </div>
     )
 }
 
 
 
-export {PlaylistInfoView,SeePlaylist};
+export { PlaylistInfoView, SeePlaylist };

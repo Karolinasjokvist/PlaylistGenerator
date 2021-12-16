@@ -45,7 +45,7 @@
     border-bottom-right-radius: 10px;
     width: 30%;
     position: absolute;
-    top: 52%;
+    top: 60%;
     left: 18%;
     color: black;
     text-align: center;
@@ -62,7 +62,7 @@
     background-color: rgb(0, 0, 51);
     margin: auto;
     width: 30%;
-    height: 400px;
+    height: 200px;
     border-radius: 10px;
     position: absolute;
     right:18%;
@@ -109,4 +109,61 @@
     height: 50px;
     bottom: 1px;
     right: 70px;
+}
+
+
+@media (max-width: 480px) {
+    .generateArtists .buttonBack{
+        width: 40%;
+        height: 50px;
+        font-size: 10vmin;
+    }
+
+    .generateArtists .buttonNext{
+        width: 40%;
+        height: 50px;
+        font-size: 10vmin;
+        
+    }
+
+    .generateArtists{
+        padding: 1px;
+        position: static;
+        display: block;
+        height: auto;
+    }
+
+    .titelBox{
+        font-size: 10vmin;
+        height: auto;
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 100px;
+        position: static;
+    }
+
+    .searchResults{
+        position: static;
+        width: 90%;
+        margin-left: 5%;
+        font-size: 8.5vmin;
+    }
+
+    .addedArtists{
+        position: static;
+        width: 95%;
+        margin-left: 5%;
+        margin-top: 10px;
+        font-size: 8.5vmin;
+    }
+
+    .deleteButton{
+        width: 9vmin;
+        height: 9vmin;
+    }
+
+    .artistsBox{
+        display: none;
+    }
+
 }

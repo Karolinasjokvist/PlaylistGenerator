@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import  {GenerateGenreView, ButtonView}  from '../views/generateGenreView';
+import { GenerateGenreView } from '../views/generateGenreView';
 
 
 function GenerateGenrePresenter(props) {
@@ -16,8 +16,8 @@ function GenerateGenrePresenter(props) {
 
     return (
         <div>
-            {<GenerateGenreView genres = {genres}
-                                setGenre={(genre,value, name) => props.pmodel.addGenre(genre,value, name)}
+            {<GenerateGenreView genres={genres}
+                                setGenre={(genre, value, name) => props.pmodel.addGenre(genre, value, name)}
                                 totalPercent={total}/>}
             {console.log(total)}
             {console.log(props.pmodel.genres)}

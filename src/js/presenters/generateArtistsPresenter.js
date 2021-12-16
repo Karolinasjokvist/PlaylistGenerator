@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { AddedArtistsView, GenerateArtistsView, SearchResultsView, FullList, ButtonView } from '../views/generateArtistsView';
+import { AddedArtistsView, GenerateArtistsView, SearchResultsView, FullList} from '../views/generateArtistsView';
 import PromiseNoRender from '../promiseNoRender';
+import {PromiseNoData} from '../promiseNoData';
 import { SongSource } from '../songSource';
 
 function GenerateArtistsPresenter(props) {
@@ -22,6 +23,7 @@ function GenerateArtistsPresenter(props) {
     return (
         <div>
             <GenerateArtistsView
+                artist={dataArtists}
                 onText={(search) => {
                     setData(null);
                     setError(null);
@@ -31,7 +33,7 @@ function GenerateArtistsPresenter(props) {
                     );
                 }} />
 
-            {PromiseNoRender(promise, data, error) ||
+            {PromiseNoData(promise, data, error) ||
                 (<SearchResultsView searchResults={data.data}
                     addArtist={(artist) => { (props.pmodel.artist === null)? props.pmodel.addArtist(artist): <FullList />}}
                 />)}
