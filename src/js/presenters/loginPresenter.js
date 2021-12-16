@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import LoginView from '../views/loginView';
-import LoginUser from '../loginModel';
-import RegisterUser from '../loginModel';
-import logoutUser from '../loginModel';
 
 function LoginPresenter(props) {
     let email = '';

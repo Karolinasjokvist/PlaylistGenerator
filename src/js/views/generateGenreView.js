@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../../css/generateGenre.css';
 import '../../css/button.css';
 
@@ -6,14 +6,14 @@ function GenerateGenreView(props) {
     return (
         <div className="main">
             <div className="content">
-                <button className="buttonNext" disabled={!(props.totalPercent == 1)} onClick={e => { window.location.hash = "#generateArtists" }}>→</button>
+                <button className="buttonNext" disabled={!(props.totalPercent === 1)} onClick={e => { window.location.hash = "#generateArtists" }}>→</button>
                 <button className="buttonBack" onClick={e => { window.location.hash = "#generateStart" }}>←</button>
                 <div className="genreTitle">
                     What genres are you interested in? <br></br>
                     {(props.totalPercent * 100).toFixed(0) + "%/100%"} <br></br>
-                    <button onClick={e => { props.genres.map(genre => { props.setGenre(genre.radio, 0, genre.name), buttonPressed(genre.id, genre.name)})}}
+                    <button onClick={e => { props.genres.map(genre => { return (props.setGenre(genre.radio, 0, genre.name), buttonPressed(genre.id, genre.name))})}}
                         className={"generateAButton"}
-                        disabled={props.totalPercent == 0}>
+                        disabled={props.totalPercent === 0}>
                         Changed your mind? <br></br> Clear your choices here
                     </button>
                 </div>
@@ -21,10 +21,10 @@ function GenerateGenreView(props) {
 
             {props.genres.map(genre =>
                 <span className="generateView" key={genre.id}  >
-                    <img src={genre.img} className="generateImgGenre"></img>
+                    <img alt={genre.name}src={genre.img} className="generateImgGenre"></img>
                     <div>{genre.name}</div>
                     <div className="slide">
-                        <input onChange={e => { e = value(genre.id, genre.name), console.log(genre.name), props.setGenre(genre.radio, e, genre.name) }}
+                        <input onChange={e => { e = value(genre.id, genre.name); props.setGenre(genre.radio, e, genre.name) }}
                             type="range"
                             id={genre.id}
                             min="0" max="100"

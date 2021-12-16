@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { SongSource } from '../songSource';
 import {PromiseNoData} from '../promiseNoData';
 import { ExploreArtistsView, StopMusic } from '../views/exploreArtistsView';
@@ -8,7 +8,9 @@ import promiseNoArtists from '../promiseNoArtists';
 function ExploreArtistsPresenter(props) {
     const [promise, setPromise] = React.useState(null);
     const [data, setData] = React.useState(null);
-    const [error, setError] = React.useState(props.model.currentGenreError);
+    const [error, setError] = React.useState(null);
+
+    const [genre, setGenre] = React.useState(props.model.currentGenre);
 
     const [promiseSongs, setPromiseSongs] = React.useState(null);
     const [dataSongs, setDataSongs] = React.useState(null);
@@ -21,8 +23,9 @@ function ExploreArtistsPresenter(props) {
 
     React.useEffect(() => {
         const obs = () => {
+            setGenre(props.model.currentGenre)
             setPromise(
-                SongSource.getArtistsFromGenre(props.model.currentGenre)
+                SongSource.getArtistsFromGenre(genre)
                     .then((data) => setData(data))
                     .catch((error) => setError(error))
             )
@@ -36,8 +39,7 @@ function ExploreArtistsPresenter(props) {
         <div>
             {promiseNoArtists(promise, data, error) || (
                 <ExploreArtistsView artist={data.data}
-                    genre={props.model.currentGenre}
-                    genreName={props.model.getGenreName(props.model.currentGenre)}
+                    genre={genre}
                     audio={audio}
                     func={(id) => {
                         setPromiseSongs(
@@ -66,7 +68,7 @@ function ExploreArtistsPresenter(props) {
 }
 
 function playMusic(songs, index) {
-    if (index == 5) {
+    if (index === 5) {
         index = 0;
     }
     const audio = new Audio();

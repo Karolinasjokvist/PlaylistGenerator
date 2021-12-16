@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 // import './css/App.css';
 import ExploreArtistsPresenter from './js/presenters/exploreArtistsPresenter';
 import ExploreGenrePresenter from './js/presenters/exploreGenrePresenter';
@@ -12,10 +12,8 @@ import TopBarPresenter from './js/presenters/topBarPresenter';
 import PlaylistPresenter from './js/presenters/playlistPresenter';
 import Show from './js/presenters/showPresenter';
 import StartPresenter from './js/presenters/startViewPresenter';
-import { SongSource } from './js/songSource';
 import GeneratedPlaylistPresenter from './js/presenters/generatedPlaylistPresenter';
 import PlaylistInfoPresenter from './js/presenters/playlistInfoPresenter';
-
 
 function defaultRoute() {
   if (["#start", "#exploreGenre", "#exploreArtists", "#login", "#register"].find((knownRoute) => knownRoute !== window.location.hash)) {
@@ -23,14 +21,13 @@ function defaultRoute() {
   }
 }
 
-
-
 function App(props) {
+
   defaultRoute();
   return (
     <div>
       <TopBarPresenter />
-      <Show hash="#start" class="mainContent debug"><StartPresenter /></Show>
+      <Show hash="#start" class="mainContent debug"><StartPresenter pmodel={props.pmodel}/></Show>
       <Show hash="#exploreGenre" class="mainContent debug"><ExploreGenrePresenter model={props.model} /></Show>
       <Show hash="#exploreArtists" class="mainContent debug"><ExploreArtistsPresenter model={props.model} /></Show>
       <Show hash="#generateStart" class="mainContent debug"><GenerateStartPresenter pmodel={props.pmodel} /></Show>
@@ -41,11 +38,11 @@ function App(props) {
         pmodel={props.pmodel} /></Show>
 
       <Show hash="#myPlaylists" class="mainContent debug"><MyPlaylistsPresenter model={props.model} /></Show>
-      <Show hash="#login" class="mainContent debug"><LoginPresenter model={props.model} /></Show>
+      {/* <Show hash="#login" class="mainContent debug"><LoginPresenter model={props.model} /></Show> */}
       <Show hash="#register" class="mainContent debug"><RegisterPresenter model={props.model} /></Show>
       <Show hash="#generatedPlaylist" class="mainContent debug"><GeneratedPlaylistPresenter pmodel={props.pmodel}
-        savePlaylist={(playlist) => props.model.savePlaylist(playlist)} /></Show>
-        
+        savePlaylist={(playlist) => {props.model.savePlaylist(playlist); props.pmodel.resetPlaylist()}} /></Show>
+
       <Show hash="#playlistInfo" class="mainContent debug"><PlaylistInfoPresenter pmodel={props.pmodel} /></Show>
       <Show hash="#playlist" class="mainContent debug"><PlaylistPresenter model={props.model} /></Show>
     </div>

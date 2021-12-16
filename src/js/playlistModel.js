@@ -1,7 +1,24 @@
 class PlaylistModel {
     constructor() {
-        this.playlistID = "1";
-        this.playlistName = "Edit Name";
+        this.playlistID = 1;
+        this.playlistName = null;
+        this.chosenNumberOfSongs = 0;
+        this.actualNumberOfSongs = 0;
+        this.explicit = false;
+        this.genres = [];
+        this.currentSong = null;
+        this.songs = [];
+        this.observers = [];
+        this.artist = null;
+        this.total = 0;
+        this.currentSong = null;
+        this.currentAudio = null;
+        this.playlistDone = false;
+    }
+
+    resetModel() {
+        this.playlistID = this.playlistID + 1;
+        this.playlistName = null;
         this.chosenNumberOfSongs = 0;
         this.actualNumberOfSongs = 0;
         this.explicit = false;
@@ -18,7 +35,7 @@ class PlaylistModel {
 
     addGenre(radioID, value, name) {
 
-        if (value == 0) {
+        if (value === 0) {
             console.log("remove")
             this.removeGenre(radioID);
             this.setTotalPercent();
@@ -61,9 +78,9 @@ class PlaylistModel {
         this.notifyObservers();
     }
 
-    setActualNumberOfSongs(length){
+    setActualNumberOfSongs(length) {
         this.actualNumberOfSongs += length;
-        if(this.actualNumberOfSongs >= this.chosenNumberOfSongs){
+        if (this.actualNumberOfSongs >= this.chosenNumberOfSongs) {
             return;
         }
         console.log(this.actualNumberOfSongs)
@@ -87,7 +104,7 @@ class PlaylistModel {
             this.removeCurrentAudio();
             return;
         }
-        if(this.currentAudio !== null){
+        if (this.currentAudio !== null) {
             this.removeCurrentAudio();
         }
         this.currentSong = song;
@@ -110,13 +127,13 @@ class PlaylistModel {
 
     addSongsToPlaylist(arrayWithSongs) {
         console.log(this.chosenNumberOfSongs)
-        if(this.songs.length >= this.chosenNumberOfSongs){
+        if (this.songs.length >= this.chosenNumberOfSongs) {
             return;
         }
         this.songs = this.songs.concat(arrayWithSongs);
         console.log(this.actualNumberOfSongs)
         this.playlistDone = true;
-        
+
         this.notifyObservers();
     }
 
@@ -131,7 +148,7 @@ class PlaylistModel {
     }
 
     addObserver(callback) {
-        this.observers = [... this.observers, callback];
+        this.observers = [...this.observers, callback];
     }
     removeObserver(callback) {
         this.observers = this.observers.filter(obs => obs !== callback);
@@ -142,7 +159,7 @@ class PlaylistModel {
         });
     }
     setcurrentSong(id) {
-        if (this.currentSong = id) {
+        if (this.currentSong === id) {
             return;
         }
         this.currentSong = id;

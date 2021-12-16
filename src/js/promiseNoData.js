@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import "../css/App.css"
 
 function PromiseNoData(promise, data, error) {
@@ -8,7 +8,7 @@ function PromiseNoData(promise, data, error) {
         return(<div></div>);
     } else if (data === null || data === undefined) {
         console.log("data")
-        return ( <img class="loadingSymbol" src="http://www.csc.kth.se/~cristi/loading.gif"/>)
+        return ( <img alt="loading" class="loadingSymbol" src="http://www.csc.kth.se/~cristi/loading.gif"/>)
     } else if (error !== null) {
         console.log("error")
         return(<div></div>);

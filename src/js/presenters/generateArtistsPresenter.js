@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { AddedArtistsView, GenerateArtistsView, SearchResultsView, FullList} from '../views/generateArtistsView';
 import PromiseNoRender from '../promiseNoRender';
 import {PromiseNoData} from '../promiseNoData';
@@ -35,7 +35,7 @@ function GenerateArtistsPresenter(props) {
 
             {PromiseNoData(promise, data, error) ||
                 (<SearchResultsView searchResults={data.data}
-                    addArtist={(artist) => { (props.pmodel.artist === null)? props.pmodel.addArtist(artist): <FullList />}}
+                    addArtist={(artist) =>  (props.pmodel.artist === null)? props.pmodel.addArtist(artist): <FullList />}
                 />)}
 
             {PromiseNoRender("not null", dataArtists, error) || (

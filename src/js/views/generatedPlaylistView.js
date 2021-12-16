@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../../css/playlistView.css';
 
 function GeneratedPlaylistView(props) {
@@ -10,7 +10,7 @@ function GeneratedPlaylistView(props) {
             <div className="middlebox">
                 <div className="toprow">
                     <input type="text" className="titleText" placeholder="Edit Playlistname" onChange={e => props.setPlaylistName(e.target.value)} ></input>
-                    <div className="savecontainer"><button className="save" onClick={e => props.save()}>Save</button></div>
+                    <div className="savecontainer"><button className="save" onClick={e => {props.save(); window.location.hash = "#myPlaylists"}}>Save</button></div>
                 </div>
 
                 <table className="playlisttable">
@@ -28,7 +28,7 @@ function GeneratedPlaylistView(props) {
                                     <td id="name" className="playButton" onClick={e => {
                                         props.playOrPause(song);
                                     }}>{song === props.currentSong ? "◼" : "▶"}</td>
-                                    <td>{tooLong(song.title)}</td>
+                                    <td>{tooLong(song.title) + (song.explicit_lyrics ? "🅴" : "")}</td>
                                     <td>{tooLong(song.artist.name)}</td>
                                     <td>{tooLong(song.album.title)}</td>
                                     <td>{(song.duration / 60).toFixed(0)}:{addZero(song.duration % 60)}</td>
