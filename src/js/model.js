@@ -47,13 +47,13 @@ class Model {
             id: "129",
             name: "Jazz",
             img: "https://images.freeimages.com/images/large-previews/946/sax-player-1254283.jpg",
-            radio: "Jazz"
+            radio: "31031"
         },
         {
             id: "464",
             name: "Metal",
             img: "https://images.freeimages.com/images/large-previews/42d/angel-drummer-1559333.jpg",
-            radio: "Metal"
+            radio: "30901"
         },
         {
             id: "169",
@@ -81,8 +81,9 @@ class Model {
         return this.genreList.find(x => x.id === id).name;
     }
 
-    savePlaylist(name){
-
+    savePlaylist(playlist){
+        this.playlists = [... this.playlists, playlist];
+        this.notifyObservers();
     }
 
     addObserver(callback) {
