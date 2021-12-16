@@ -10,7 +10,12 @@ function GenerateGenreView(props) {
                 <button className="buttonBack" onClick={e => { window.location.hash = "#generateStart" }}>←</button>
                 <div className="genreTitle">
                     What genres are you interested in? <br></br>
-                    {props.totalPercent * 100 + "%/100%"}
+                    {(props.totalPercent * 100).toFixed(0) + "%/100%"} <br></br>
+                    <button onClick={e => { props.genres.map(genre => { props.setGenre(genre.radio, 0, genre.name), buttonPressed(genre.id, genre.name)})}}
+                        className={"generateAButton"}
+                        disabled={props.totalPercent == 0}>
+                        Changed your mind? <br></br> Clear your choices here
+                    </button>
                 </div>
             </div>
 
@@ -19,13 +24,24 @@ function GenerateGenreView(props) {
                     <img src={genre.img} className="generateImgGenre"></img>
                     <div>{genre.name}</div>
                     <div className="slide">
-                        <input onChange={e => {e = value(genre.id,genre.name),console.log(genre.name),props.setGenre(genre.radio,e,genre.name)}} type="range" id={genre.id} min="0" max="100" step="20" defaultValue="0"></input>
+                        <input onChange={e => { e = value(genre.id, genre.name), console.log(genre.name), props.setGenre(genre.radio, e, genre.name) }}
+                            type="range"
+                            id={genre.id}
+                            min="0" max="100"
+                            step="20"
+                            defaultValue="0"
+                            disabled={((props.totalPercent * 100) === 100)}></input>
                         <div id={genre.name}>0</div><div className="percent">%</div>
                     </div>
                 </span>
             )}
         </div>
     );
+}
+
+function buttonPressed(range, genre) {
+    document.getElementById(range).value = 0;
+    document.getElementById(genre).innerHTML = 0;
 }
 
 function value(range, genre) {
