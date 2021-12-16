@@ -116,6 +116,7 @@ function pickSongs(arrayWithSongs, percentage, numberOfSongs, explicit) {
     } else {
         while (i < amount) {
             songs[i] = arrayWithSongs[i];
+            i++;
         }
     }
     console.log(songs)

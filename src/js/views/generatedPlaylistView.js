@@ -28,7 +28,7 @@ function GeneratedPlaylistView(props) {
                                     <td id="name" className="playButton" onClick={e => {
                                         props.playOrPause(song);
                                     }}>{song === props.currentSong ? "◼" : "▶"}</td>
-                                    <td>{tooLong(song.title)}</td>
+                                    <td>{tooLong(song.title) + (song.explicit_lyrics ? "🅴" : "")}</td>
                                     <td>{tooLong(song.artist.name)}</td>
                                     <td>{tooLong(song.album.title)}</td>
                                     <td>{(song.duration / 60).toFixed(0)}:{addZero(song.duration % 60)}</td>

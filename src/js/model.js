@@ -5,6 +5,7 @@ class Model {
         this.observers = [];
         this.currentPlaylist = "1";
         this.playlists = [];
+        console.log("halloj");
         this.genreList = [
         {
             id: "132",
