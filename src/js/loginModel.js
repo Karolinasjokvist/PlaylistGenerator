@@ -1,22 +1,51 @@
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import {
+    getAuth,
+    createUserWithEmailAndPassword,
+    onAuthStateChanged,
+    signInWithEmailAndPassword,
+    signOut,
+} from "firebase/auth";
+import { db } from "./firebaseConfig.js";
 
+class LoginModel {
+    constructor() {
+        this.user = null;
+    }
 
-function LoginUser (email, password)
-{
-    const auth = getAuth();
-    const emailErrorMessage = document.getElementById("error-message-email");
-    const passwordErrorMessage = document.getElementById("error-message-password");
-    createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => { const user = userCredential.user; })
-        .catch((error) => { const errorCode = error.code; const errorMessage = error.message; });
+    LoginUser(email, password) {
+        const auth = getAuth();
 
         signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => { const user = userCredential.user; })
-        .catch((error) => { const errorCode = error.code; const errorMessage = error.message; });
+            .then((userCredential) => {
+                this.user = userCredential.user;
+            })
+            .catch((error) => {
+                console.log(error.code);
+                console.log(error.message);
+            });
+    }
+    RegisterUser(email, password) {
+        const auth = getAuth();
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                this.user = userCredential.user;
+            })
+            .catch((error) => {
+                console.log(error.code);
+                console.log(error.message);
+            });
+    }
 
-    signOut(auth).then(() => { // Sign-out Succes
-    }).catch((error) => { // Error occured
-    });
+    logoutUser() {
+        const auth = getAuth();
+        signOut(auth)
+            .then(() => {
+                // Sign-out Succes
+            })
+            .catch((error) => {
+                // Error occured
+            });
+    }
 }
 
-export default LoginUser;
+export default LoginModel;
