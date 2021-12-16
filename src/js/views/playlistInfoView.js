@@ -1,5 +1,7 @@
 import React from 'react';
 import "../../css/playlistInfo.css";
+import '../../css/button.css';
+
 function PlaylistInfoView(props) {
     return (
         <div className="playlistInfoDiv">
