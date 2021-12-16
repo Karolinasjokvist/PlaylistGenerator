@@ -38,8 +38,8 @@ function App(props) {
         pmodel={props.pmodel} /></Show>
 
       <Show hash="#myPlaylists" class="mainContent debug"><MyPlaylistsPresenter model={props.model} /></Show>
-      {/* <Show hash="#login" class="mainContent debug"><LoginPresenter model={props.model} /></Show> */}
-      <Show hash="#register" class="mainContent debug"><RegisterPresenter model={props.model} /></Show>
+      <Show hash="#login" class="mainContent debug"><LoginPresenter loginModel={props.loginModel} /></Show>
+      <Show hash="#register" class="mainContent debug"><RegisterPresenter loginModel={props.loginModel} /></Show>
       <Show hash="#generatedPlaylist" class="mainContent debug"><GeneratedPlaylistPresenter pmodel={props.pmodel}
         savePlaylist={(playlist) => {props.model.savePlaylist(playlist); props.pmodel.resetPlaylist()}} /></Show>
 

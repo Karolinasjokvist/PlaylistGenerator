@@ -4,8 +4,8 @@ import {
     onAuthStateChanged,
     signInWithEmailAndPassword,
     signOut,
-} from "firebase/auth";
-import { db } from "./firebaseConfig.js";
+} from 'firebase/auth';
+import { db } from './firebaseConfig.js';
 
 class LoginModel {
     constructor() {
