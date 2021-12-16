@@ -22,7 +22,7 @@ html{
 .buttonRight{
     width: 70%;
     height: 80%;
-    background-color: blueviolet;
+    background-color: rgb(125, 94, 160);
     display: grid;
     place-content: center;
     text-align: center;
@@ -36,7 +36,7 @@ html{
 .buttonLeft{
     width: 70%;
     height: 80%;
-    background-color: blueviolet;
+    background-color: rgb(125, 94, 160);
     display: grid;
     place-content: center;
     text-align: center;
@@ -51,7 +51,7 @@ html{
 .midButton{
     width: 80%;
     height: 90%;
-    background-color: blueviolet;
+    background-color: rgb(125, 94, 160);
     margin-bottom: 0;
     display: grid;
     place-content: center;

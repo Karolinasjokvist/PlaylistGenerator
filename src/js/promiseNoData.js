@@ -21,6 +21,7 @@ function PromiseNoData(promise, data, error) {
 }
 
 function PlaylistDone(promise, data, error){
+    console.log(error)
     if (promise === null || promise === undefined) {
         console.log("promise")
         return(<div></div>);
