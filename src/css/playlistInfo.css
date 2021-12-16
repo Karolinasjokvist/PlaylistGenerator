@@ -62,3 +62,54 @@ table.playlistInfo td, tr{
     text-align: center;
     font-size: 200%
 }
+
+@media (max-width: 480px) {
+    .playlistInfoDiv .buttonBack{
+        width: 90%;
+        margin-left: 5%;
+        height: 50px;
+        font-size: 10vmin;
+        position:static;
+    }
+
+    .playlistInfoDiv{
+        width: 100%;
+        position: static;
+        text-align: center;
+    }
+
+    .playlistInfoDiv .playlistInfo tr,td{
+        font-size: 8.2vmin;
+    }
+
+    .playlistInfoDiv .playlistInfo{
+        width: 90%;
+        margin-left: -25%;
+    }
+
+    .playlistInfo{
+        position: static;
+        width: 500px;
+        margin-left: 5%; 
+        border: solid;
+        margin-left: -10vw;
+        font-size: 1vmin;
+    }
+
+    .generateButton{
+        font-size: 12vmin;
+        width: fit-content;
+        margin: auto;
+        position: static;
+        margin-top: 2%;
+        cursor: pointer;
+    }
+
+    .after{
+        text-align: center;
+    }
+
+    .shortList{
+        font-size: 5.5vmin;
+    }
+}

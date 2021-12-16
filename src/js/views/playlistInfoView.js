@@ -29,7 +29,7 @@ function PlaylistInfoView(props) {
 }
 function SeePlaylist(props) {
     return (
-        <div>
+        <div className="after">
             <button className="generateButton" onClick={e => window.location.hash = "#generatedPlaylist"}>See your playlist</button>
             {(props.chosenAmount == props.actualAmount) || <div className="shortList">The list will be shorter than expected because of limited number of non-explicit songs</div>}
         </div>
