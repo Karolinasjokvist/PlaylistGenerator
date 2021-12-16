@@ -1,3 +1,4 @@
+
 class Model {
     constructor() {
         this.currentGenre = "152";
@@ -106,6 +107,7 @@ class Model {
             try { cb() } catch (e) { console.log(e) }
         });
     }
+
 }
 
 export default Model;

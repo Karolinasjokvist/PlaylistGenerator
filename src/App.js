@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import './css/App.css';
+import './css/App.css';
 import  ExploreArtistsPresenter from './js/presenters/exploreArtistsPresenter';
 import  ExploreGenrePresenter  from './js/presenters/exploreGenrePresenter';
 import  GenerateStartPresenter  from './js/presenters/generateStartPresenter';
