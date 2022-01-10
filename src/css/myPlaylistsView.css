@@ -62,12 +62,28 @@
     background: transparent;
     border: none;
     outline: none;
-    width: 50%;
+    display: inline-block;
     font-size: 3vmax;
 }
 .titleText::placeholder{
     font-size: 3vmax;
     color: white;
+}
+
+.button{
+    background: transparent;
+    border: none;
+    outline: none;
+    display: inline-block;
+    font-size: 3vmax;
+}
+
+.input{
+    color: black;
+}
+
+.saveName{
+    background-color: #151443;
 }
 
 table.playlisttable{

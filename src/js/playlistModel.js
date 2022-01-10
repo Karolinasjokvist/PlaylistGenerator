@@ -1,6 +1,7 @@
+// import { connectFirestoreEmulator } from "firebase/firestore";
+
 class PlaylistModel {
     constructor() {
-        this.playlistID = 1;
         this.playlistName = null;
         this.chosenNumberOfSongs = 0;
         this.actualNumberOfSongs = 0;
@@ -16,8 +17,7 @@ class PlaylistModel {
         this.playlistDone = false;
     }
 
-    resetModel() {
-        this.playlistID = this.playlistID + 1;
+    resetPlaylist() {
         this.playlistName = null;
         this.chosenNumberOfSongs = 0;
         this.actualNumberOfSongs = 0;
@@ -25,12 +25,12 @@ class PlaylistModel {
         this.genres = [];
         this.currentSong = null;
         this.songs = [];
-        this.observers = [];
         this.artist = null;
         this.total = 0;
         this.currentSong = null;
         this.currentAudio = null;
         this.playlistDone = false;
+        this.notifyObservers();
     }
 
     addGenre(radioID, value, name) {
@@ -74,7 +74,6 @@ class PlaylistModel {
 
     setNumberOfSongs(length) {
         this.chosenNumberOfSongs = length;
-        console.log(this.chosenNumberOfSongs)
         this.notifyObservers();
     }
 

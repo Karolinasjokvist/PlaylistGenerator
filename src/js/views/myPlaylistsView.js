@@ -22,9 +22,9 @@ function MyPlaylistsView(props) {
                         </tr>
                         {props.playlists.map(playlist => {
                             return (
-                                <tr>
-                                    <td>{playlist.playlistName}<button className="pencil" onClick={e => { window.location.hash = "#playlist" }}>&#128393;</button></td>
-                                    <td>{playlist.date.toString()}</td>
+                                <tr key={`${playlist.id}`} onClick={e => { return props.setCurrent(playlist), window.location.hash = "#playlist" }}>
+                                    <td>{playlist.name}</td>
+                                    <td>{playlist.date}</td>
                                     <td>{playlist.songs.length}</td>
                                 </tr>)
                         })}

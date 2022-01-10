@@ -1,11 +1,22 @@
-
+import { getDefaultNormalizer } from '@testing-library/react';
+import {
+    getAuth,
+    createUserWithEmailAndPassword,
+    onAuthStateChanged,
+    signInWithEmailAndPassword,
+    signOut,
+} from 'firebase/auth';
+import { getDoc, setDoc, doc, updateDoc, collection, getDocs } from "firebase/firestore";
+import { db } from './firebasecd.js';
 class Model {
     constructor() {
         this.currentGenre = null;
         this.observers = [];
-        this.currentPlaylist = "1";
+        this.currentPlaylist = null;
         this.playlists = [];
-        console.log("halloj");
+        this.playlist = null;
+        this.user = null;
+        this.currentPlaylist = null;
         this.genreList = [
             {
                 id: "132",
@@ -72,6 +83,7 @@ class Model {
         ];
     }
 
+
     setCurrentGenre(genre) {
         this.currentGenre = genre;
         this.currentGenreArtists = null;
@@ -80,8 +92,54 @@ class Model {
     }
 
     savePlaylist(playlist) {
-        this.playlists = [...this.playlists, playlist];
-        this.playlists.find(p => p.name === playlist.name).date = new Date();
+        this.playlist = playlist;
+        const date = new Date()
+        this.playlist.date = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+        this.playlist.id = this.playlists.length;
+        this.playlists.push({ id: this.playlist.id, name: this.playlist.playlistName, songs: this.playlist.songs, date: this.playlist.date });
+
+        this.playlists = this.playlists.filter(
+            (playlist) => playlist !== undefined
+        );
+        this.notifyObservers();
+        const docRef = doc(db, "users", this.user.uid);
+        (async () => {
+            try {
+                const userlist = this.playlists;
+                await updateDoc(docRef, {
+                    userPlaylists: userlist,
+                });
+            }
+            catch (e) {
+                console.error("Error adding playlist: ", e);
+            }
+        })();
+    }
+
+    setCurrentPlaylist(playlist) {
+        this.currentPlaylist = playlist;
+        this.notifyObservers();
+    }
+
+    setPlaylistName(name) {
+        console.log(this.currentPlaylist)
+        this.currentPlaylist.name = name;
+        this.playlists = this.playlists.filter(
+            (playlist) => playlist !== undefined
+        );
+        const docRef = doc(db, "users", this.user.uid);
+        (async () => {
+            try {
+                const userlist = this.playlists;
+                await updateDoc(docRef, {
+                    userPlaylists: userlist,
+                });
+            }
+            catch (e) {
+                console.error("Error adding playlist: ", e);
+            }
+        })();
+        console.log(this.playlists);
         this.notifyObservers();
     }
 
@@ -97,6 +155,80 @@ class Model {
         });
     }
 
+    LoginUser(email, password) {
+        const auth = getAuth();
+
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                this.user = userCredential.user;
+                console.log(this.user.uid)
+                this.getDataBaseInfo();
+            })
+            .catch
+            ((error) => {
+                console.log(error.code);
+                console.log(error.message);
+            });
+    }
+    getDataBaseInfo() {
+        const docRef = doc(db, "users", this.user.uid);
+        (async () => {
+            const doc = await getDoc(docRef);
+            const data = doc.data();
+            data.userPlaylists.forEach(list => this.playlists.push(list));
+            console.log(this.playlists);
+            this.playlists = this.playlists.filter(
+                (playlist) => playlist !== undefined
+            );
+            this.notifyObservers();
+        })();
+    }
+
+
+    RegisterUser(email, password) {
+        console.log(email, password);
+        const auth = getAuth();
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                this.user = userCredential.user;
+                (async () => {
+                    try {
+                        await setDoc(doc(db, "users", this.user.uid), {
+                            userPlaylists: []
+                        });
+                    }
+                    catch (e) {
+                        console.error("Error adding playlist: ", e);
+                    }
+                })();
+
+                this.LoginUser(email, password);
+            })
+            .catch((error) => {
+                console.log(error.code);
+                console.log(error.message);
+            });
+    }
+    logoutUser() {
+        const auth = getAuth();
+        this.playlists = [];
+        signOut(auth)
+            .then(() => {
+                // Sign-out Success
+                this.user = null;
+                this.notifyObservers();
+            })
+            .catch((error) => {
+                // Error occured
+            });
+    }
+
 }
+
+
+
+
+
+
 
 export default Model;

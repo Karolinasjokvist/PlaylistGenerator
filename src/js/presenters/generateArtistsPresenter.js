@@ -2,7 +2,7 @@ import React from 'react';
 import { AddedArtistsView, GenerateArtistsView, SearchResultsView, FullList} from '../views/generateArtistsView';
 import PromiseNoRender from '../promiseNoRender';
 import {PromiseNoData} from '../promiseNoData';
-import { SongSource } from '../songSource';
+import SongSource from '../songSource';
 
 function GenerateArtistsPresenter(props) {
     const [promise, setPromise] = React.useState(null);
@@ -22,6 +22,11 @@ function GenerateArtistsPresenter(props) {
 
     return (
         <div>
+            {PromiseNoRender("not null", dataArtists, error) || (
+            <AddedArtistsView artist={dataArtists}
+                removeArtist={() => { props.pmodel.removeArtist() }} 
+            />)}
+
             <GenerateArtistsView
                 artist={dataArtists}
                 onText={(search) => {
@@ -35,13 +40,10 @@ function GenerateArtistsPresenter(props) {
 
             {PromiseNoData(promise, data, error) ||
                 (<SearchResultsView searchResults={data.data}
-                    addArtist={(artist) =>  (props.pmodel.artist === null)? props.pmodel.addArtist(artist): <FullList />}
+                    addArtist={(artist) => { (props.pmodel.artist === null) ? props.pmodel.addArtist(artist) : <FullList />}}
                 />)}
 
-            {PromiseNoRender("not null", dataArtists, error) || (
-                <AddedArtistsView artist={dataArtists}
-                    removeArtist={() => { props.pmodel.removeArtist() }} 
-                />)}
+
         </div>
     );
 

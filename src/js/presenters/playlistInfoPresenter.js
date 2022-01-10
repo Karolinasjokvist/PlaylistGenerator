@@ -1,5 +1,5 @@
 import React from 'react';
-import { SongSource } from '../songSource';
+import SongSource from '../songSource';
 import { PlaylistInfoView, SeePlaylist } from '../views/playlistInfoView';
 import { PlaylistDone } from '../promiseNoData';
 

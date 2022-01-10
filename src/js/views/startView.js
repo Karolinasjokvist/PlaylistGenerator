@@ -10,12 +10,12 @@ function StartView(props) {
                 </div>
             </div>
             <div className="menuItem">
-                <div className="midButton"onClick={e => {window.location.hash = "#generateStart"}}>
+                <div className="midButton"onClick={e => {return props.reset(),window.location.hash = "#generateStart"}}>
                     Generate Playlist
                 </div>
             </div>
             <div className="menuItem">
-                <div className="buttonRight"onClick={e => {window.location.hash = "#myPlaylists"}}>
+                <div className="buttonRight"onClick={e => {props.user === null?window.location.hash = "#login": window.location.hash = "#myPlaylists"}}>
                     My Playlists
                 </div>
             </div>
